@@ -30,7 +30,19 @@ make run_db
 Connect to Database Container:
 make execute_db
 
-## Run Python RestService:
+## Run Python RestService
 flask --app RestService.py run
+
+Rest-Request are imported as JSON-File in folder "Routes" and can be imported into Postman
+
+RestService runs on localhost:5000 on default
+
+List of implemented and working Requests:
+/Hello
+/GetAllUsers
+/GetUser
+/AddUser
+/DeleteUser
+
 
 
