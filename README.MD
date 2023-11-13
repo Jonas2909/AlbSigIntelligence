@@ -28,7 +28,7 @@ Run Database as Docker Container using Makefile: <br>
 make run_db <br>
 
 Connect to Database Container: <br>
-<br>make execute_db <br>
+make execute_db <br>
 
 ## Run Python RestService
 
