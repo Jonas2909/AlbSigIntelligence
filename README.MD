@@ -31,6 +31,8 @@ Connect to Database Container:
 make execute_db
 
 ## Run Python RestService
+
+Run RestService using CLI:
 flask --app RestService.py run
 
 Rest-Request are imported as JSON-File in folder "Routes" and can be imported into Postman
