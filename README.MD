@@ -70,3 +70,19 @@ make run_rest_service <br>
 
 Show Logs of RestService: <br>
 make show_logs <br>
+
+
+## Run Database and RestService as Docker Container using docker-compose
+
+Location Folder: /Test-DockerCompose
+
+Build and Run Database and RestService as Docker Container using docker compose: <br>
+docker-compose up --build
+
+If the Image are alreadyb built you only need to run them: <br>
+docker-compose up <br> 
+
+
+
+
+
