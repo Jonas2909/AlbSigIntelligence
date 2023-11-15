@@ -30,7 +30,7 @@ make run_db <br>
 Connect to Database Container: <br>
 make execute_db <br>
 
-## Run Python RestService
+## Run Python RestService manually
 
 Run RestService using CLI: <br>
 flask --app RestService.py run <br>
@@ -46,7 +46,7 @@ List of implemented and working Requests: <br>
 /AddUser <br>
 /DeleteUser <br>
 
-## Run Python RestService as Docker Container
+## Run Python RestService as Docker Container manually
 
 Location Folder: /RestService
 
@@ -54,11 +54,19 @@ Build RestService as Docker Container manually: <br>
 docker build -t flask-rest-api . <br>
 
 Run RestService as Docker Container manually: <br>
-docker run --net=localnetwork -d -p 5000:5000 flask-rest-api <br>
+docker run --name=flask-rest-api --net=localnetwork -d -p 5000:5000 flask-rest-api <br>
 
 Routes on RestService are noch reachable as shown above, but RestService is running as Docker Container instead of locally <br>
 
-Makefile loading..... <br>
-Lighten Docker images loading.... <br>
-Docker-Compose File to start both at the same time loading.... <br>
+## Run Python RestService as Docker Container using Makefile
 
+Location Fodler: /RestService
+
+Build RestService Container: <br>
+make build_rest_service <br>
+
+Run RestService as Docker Container using Makefile: <br>
+make run_rest_service <br>
+
+Show Logs of RestService: <br>
+make show_logs <br>
