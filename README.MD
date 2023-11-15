@@ -79,10 +79,5 @@ Location Folder: /Test-DockerCompose
 Build and Run Database and RestService as Docker Container using docker compose: <br>
 docker-compose up --build
 
-If the Image are alreadyb built you only need to run them: <br>
+If the Image are already built you only need to run them: <br>
 docker-compose up <br> 
-
-
-
-
-
