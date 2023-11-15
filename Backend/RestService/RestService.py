@@ -6,7 +6,7 @@ app = Flask(__name__)
 database_name = "exampledb"
 user = "postgres"
 password = "mysecretpassword"
-host = "localhost"
+host = "local_db"
 port = "5432"
 
 def connect_to_database():
@@ -150,5 +150,5 @@ def delete_user():
     else:
         return "Invalid data. 'username' is required in the request."
 
-if __name__ == "__main__":
-    app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
