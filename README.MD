@@ -58,5 +58,7 @@ docker run --net=localnetwork -d -p 5000:5000 flask-rest-api <br>
 
 Routes on RestService are noch reachable as shown above, but RestService is running as Docker Container instead of locally <br>
 
-Makefile loading.....
+Makefile loading..... <br>
+Lighten Docker images loading.... <br>
+Docker-Compose File to start both at the same time loading.... <br>
 
