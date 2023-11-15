@@ -12,6 +12,9 @@ services:
     depends_on:
       - db
     command: ["python3", "RestService.py"]
+    container_name: flask-rest-api
+    networks:
+      - localnetwork
       
   db:
     image: postgres
@@ -21,4 +24,10 @@ services:
       POSTGRES_DB: exampledb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: mysecretpassword
+    container_name: local_db
+    networks:
+      - localnetwork
+
+networks:
+  localnetwork:
 
