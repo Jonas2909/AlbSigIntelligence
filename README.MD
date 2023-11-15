@@ -46,5 +46,17 @@ List of implemented and working Requests: <br>
 /AddUser <br>
 /DeleteUser <br>
 
+## Run Python RestService as Docker Container
 
+Location Folder: /RestService
+
+Build RestService as Docker Container manually: <br>
+docker build -t flask-rest-api . <br>
+
+Run RestService as Docker Container manually: <br>
+docker run --net=localnetwork -d -p 5000:5000 flask-rest-api <br>
+
+Routes on RestService are noch reachable as shown above, but RestService is running as Docker Container instead of locally <br>
+
+Makefile loading.....
 
