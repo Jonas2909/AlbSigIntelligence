@@ -134,6 +134,10 @@ def add_user():
     password = data.get('password')
 
     if username and password:
+        existing_user = get_user_by_username(username)
+        if "User not found" not in existing_user:
+            return "Username already exists. Please choose a different username."
+
         result = add_user_to_database(firstname, lastname, username, password)
         return result
     else:

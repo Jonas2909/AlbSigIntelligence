@@ -46,11 +46,13 @@ def get_user_by_username(username):
             conn.close()
             return jsonify(user=user_dict)
         else:
+            cursor.close()
+            conn.close()
             return "User not found."
 
     except psycopg2.Error as e:
         return "Error executing SQL query: " + str(e)
-
+        
 def add_user_to_database(firstname, lastname, username, password):
     conn = connect_to_database()
     if conn is None:
@@ -134,10 +136,14 @@ def add_user():
     password = data.get('password')
 
     if username and password:
+        existing_user_response = get_user_by_username(username)
+        if isinstance(existing_user_response, str) and "User not found" not in existing_user_response:
+            return "Username already exists. Please choose a different username."
+
         result = add_user_to_database(firstname, lastname, username, password)
         return result
     else:
-        return "Invalid data. 'firstname', 'lastname', 'username' and 'password' are required in the request."
+        return "Invalid data. 'firstname', 'lastname', 'username', and 'password' are required in the request."
 
 @app.route("/DeleteUser", methods=['DELETE'])
 def delete_user():
@@ -151,4 +157,4 @@ def delete_user():
         return "Invalid data. 'username' is required in the request."
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
