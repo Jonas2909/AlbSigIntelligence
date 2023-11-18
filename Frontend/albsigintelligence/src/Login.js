@@ -34,7 +34,7 @@ export default function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      emailinput: data.get('username'),
+      usernameinput: data.get('username'),
       passwordinput: data.get('password'),
     });
   };
@@ -43,10 +43,10 @@ export default function SignIn() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      field1: data.get('field1'),
-      field2: data.get('field2'),
-      field3: data.get('field3'),
-      field4: data.get('field4'),
+      firstnameinput: data.get('firstname'),
+      lastnameinput: data.get('lastname'),
+      usernameinput: data.get('username'),
+      passwordinput: data.get('password'),
     });
     handleSignupClose();
   };
@@ -63,7 +63,6 @@ export default function SignIn() {
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <CssBaseline />
         <Box
           sx={{
             border: `4px solid ${defaultTheme.palette.primary.main}`,
@@ -78,7 +77,7 @@ export default function SignIn() {
           <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" textAlign="center">
             Dear User, Thank you for using our services. To access your account, please enter your user credentials.
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
