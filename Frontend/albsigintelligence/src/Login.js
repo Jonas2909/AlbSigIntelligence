@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -29,19 +29,46 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
-  const [openSignupDialog, setOpenSignupDialog] = React.useState(false);
-  const handleSubmit = (event) => {
+  const [openSignupDialog, setOpenSignupDialog] = useState(false);
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      usernameinput: data.get('username'),
-      passwordinput: data.get('password'),
-    });
+    try {
+      const response = await fetch('http://localhost:5000/GetUser', {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        mode: 'cors',
+        redirect: 'follow',
+        body: JSON.stringify({ "username": username }),
+      });
+      if (response.status === 404) {
+        window.alert("User not found in database -> Register");
+      }
+      else if (response.status === 500) {
+        window.alert("Database connection failed");
+      } else if (!response.ok) {
+        throw new Error(`Request faild with status: ${response.status}`);
+      }
+      const userData = await response.json();
+      console.log('User Data:', userData.user);
+
+      if(username === userData.user.username && password === userData.user.password) {
+        window.alert("Login correct -> Route to next page");
+      } else {
+        window.alert("Login not correct! Try again!");
+      }
+
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   const handleSignupSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+
     console.log({
       firstnameinput: data.get('firstname'),
       lastnameinput: data.get('lastname'),
@@ -57,7 +84,7 @@ export default function SignIn() {
 
   const handleSignupClose = () => {
     setOpenSignupDialog(false);
-  };  
+  }; 
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -90,6 +117,7 @@ export default function SignIn() {
               name="username"
               autoComplete="username"
               autoFocus
+              onChange={(e) => setUsername(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -100,6 +128,7 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <Button
               type="submit"

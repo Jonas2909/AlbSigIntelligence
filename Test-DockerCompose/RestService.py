@@ -1,7 +1,9 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, abort
+from flask_cors import CORS
 import psycopg2
 
 app = Flask(__name__)
+CORS(app)
 
 database_name = "exampledb"
 user = "postgres"
@@ -27,7 +29,7 @@ def connect_to_database():
 def get_user_by_username(username):
     conn = connect_to_database()
     if conn is None:
-        return "Error connecting to the PostgreSQL database."
+        abort(500, "Error connecting to the PostgreSQL database.")
 
     try:
         cursor = conn.cursor()
@@ -48,10 +50,10 @@ def get_user_by_username(username):
         else:
             cursor.close()
             conn.close()
-            return "User not found."
+            abort(404, "User not found.")
 
     except psycopg2.Error as e:
-        return "Error executing SQL query: " + str(e)
+        abort(500, "Error executing SQL query: " + str(e))
         
 def add_user_to_database(firstname, lastname, username, password):
     conn = connect_to_database()
@@ -60,7 +62,7 @@ def add_user_to_database(firstname, lastname, username, password):
 
     try:
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO user_credentials (firstname, lastname, username, password) VALUES (%s, %s, %s, %s)", (firstname, lastname, username, password))
+        cursor.execute("INSERT INTO user_credentials (firstname, lastname, username, password) VALUES (%s, %s, %s, %s)", (firstname, lastname,  username, password))
         conn.commit()
         cursor.close()
         conn.close()
