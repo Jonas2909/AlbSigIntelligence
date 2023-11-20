@@ -87,7 +87,7 @@ export default function SignIn() {
     setSnackbarOpen(false);
   };
 
-  const handleSignupSubmit = (event) => {
+  const handleSignupSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
@@ -97,6 +97,40 @@ export default function SignIn() {
       usernameinput: data.get('username'),
       passwordinput: data.get('password'),
     });
+
+    try {
+      const response = await fetch('http://localhost:5000/AddUser', {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        mode: 'cors',
+        redirect: 'follow',
+        body: JSON.stringify({"firstname": data.get('firstname'), "lastname": data.get('lastname'), "username": data.get('username'), "password": data.get('password') }),
+      });
+
+      if (response.status === 404) {
+        setSnackbarMessage("Username already awarded!");
+        setSnackbarOpen(true);
+      } else if (response.status === 500) {
+        setSnackbarMessage("Database connection failed");
+        setSnackbarOpen(true);
+      } else if (!response.ok) {
+        throw new Error(`Request failed with status: ${response.status}`);
+      }
+
+      const userData = await response.json();
+      console.log('User Data:', userData.user);
+      if (username === userData.user.username && password === userData.user.password) {
+        sessionStorage.setItem('isLoggedIn', 'true');
+        navigate('/Visualization');
+      } else {
+        setSnackbarMessage("Password not correct! Try again!");
+        setSnackbarOpen(true);
+      }
+
+    } catch (error) {
+      console.error(error.message);
+    }
+
     handleSignupClose();
   };
 
