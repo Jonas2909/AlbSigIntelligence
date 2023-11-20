@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,6 +13,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 
 function Copyright(props) {
   return (
@@ -32,9 +35,17 @@ export default function SignIn() {
   const [openSignupDialog, setOpenSignupDialog] = useState(false);
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!username || !password) {
+      setSnackbarMessage("Please fill out all fields!");
+      setSnackbarOpen(true);
+      return
+    }
     try {
       const response = await fetch('http://localhost:5000/GetUser', {
         headers: { "Content-Type": "application/json" },
@@ -43,26 +54,37 @@ export default function SignIn() {
         redirect: 'follow',
         body: JSON.stringify({ "username": username }),
       });
+
       if (response.status === 404) {
-        window.alert("User not found in database -> Register");
-      }
-      else if (response.status === 500) {
-        window.alert("Database connection failed");
+        setSnackbarMessage("User not found in the database. Please sign-up.");
+        setSnackbarOpen(true);
+      } else if (response.status === 500) {
+        setSnackbarMessage("Database connection failed");
+        setSnackbarOpen(true);
       } else if (!response.ok) {
-        throw new Error(`Request faild with status: ${response.status}`);
+        throw new Error(`Request failed with status: ${response.status}`);
       }
+
       const userData = await response.json();
       console.log('User Data:', userData.user);
-
-      if(username === userData.user.username && password === userData.user.password) {
-        window.alert("Login correct -> Route to next page");
+      if (username === userData.user.username && password === userData.user.password) {
+        sessionStorage.setItem('isLoggedIn', 'true');
+        navigate('/Visualization');
       } else {
-        window.alert("Login not correct! Try again!");
+        setSnackbarMessage("Password not correct! Try again!");
+        setSnackbarOpen(true);
       }
 
     } catch (error) {
       console.error(error.message);
     }
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSnackbarOpen(false);
   };
 
   const handleSignupSubmit = (event) => {
@@ -84,7 +106,7 @@ export default function SignIn() {
 
   const handleSignupClose = () => {
     setOpenSignupDialog(false);
-  }; 
+  };
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -130,6 +152,20 @@ export default function SignIn() {
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
+            <Snackbar
+              open={snackbarOpen}
+              autoHideDuration={6000}
+              onClose={handleSnackbarClose}
+            >
+              <MuiAlert
+                elevation={6}
+                variant="filled"
+                severity="error"
+                onClose={handleSnackbarClose}
+              >
+                {snackbarMessage}
+              </MuiAlert>
+            </Snackbar>
             <Button
               type="submit"
               fullWidth
