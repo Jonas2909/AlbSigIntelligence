@@ -37,6 +37,9 @@ export default function SignIn() {
   const [password, setPassword] = useState();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
+
+  const [snackbarSuccessOpen, setSnackbarSuccessOpen] = useState(false);
+  const [snackbarSuccessMessage, setSnackbarSuccessMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -88,6 +91,13 @@ export default function SignIn() {
     setSnackbarOpen(false);
   };
 
+  const handleSnackbarSuccessClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSnackbarSuccessOpen(false);
+  };
+
   const handleSignupSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -105,10 +115,13 @@ export default function SignIn() {
         method: "POST",
         mode: 'cors',
         redirect: 'follow',
-        body: JSON.stringify({"firstname": data.get('firstname'), "lastname": data.get('lastname'), "username": data.get('username'), "password": data.get('password') }),
+        body: JSON.stringify({ "firstname": data.get('firstname'), "lastname": data.get('lastname'), "username": data.get('username'), "password": data.get('password') }),
       });
-
-      if (response.status === 404) {
+      if (response.status === 200) {
+        setSnackbarSuccessMessage("User successfully added to database!")
+        setSnackbarSuccessOpen(true);
+      }
+      else if (response.status === 404) {
         setSnackbarMessage("Username already awarded!");
         setSnackbarOpen(true);
       } else if (response.status === 500) {
@@ -117,17 +130,6 @@ export default function SignIn() {
       } else if (!response.ok) {
         throw new Error(`Request failed with status: ${response.status}`);
       }
-
-      const userData = await response.json();
-      console.log('User Data:', userData.user);
-      if (username === userData.user.username && password === userData.user.password) {
-        sessionStorage.setItem('isLoggedIn', 'true');
-        navigate('/Visualization');
-      } else {
-        setSnackbarMessage("Password not correct! Try again!");
-        setSnackbarOpen(true);
-      }
-
     } catch (error) {
       console.error(error.message);
     }
@@ -187,20 +189,6 @@ export default function SignIn() {
               autoComplete="current-password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Snackbar
-              open={snackbarOpen}
-              autoHideDuration={6000}
-              onClose={handleSnackbarClose}
-            >
-              <MuiAlert
-                elevation={6}
-                variant="filled"
-                severity="error"
-                onClose={handleSnackbarClose}
-              >
-                {snackbarMessage}
-              </MuiAlert>
-            </Snackbar>
             <Button
               type="submit"
               fullWidth
@@ -270,6 +258,36 @@ export default function SignIn() {
             </form>
           </DialogContent>
         </Dialog>
+
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={6000}
+          onClose={handleSnackbarClose}
+        >
+          <MuiAlert
+            elevation={6}
+            variant="filled"
+            severity="error"
+            onClose={handleSnackbarClose}
+          >
+            {snackbarMessage}
+          </MuiAlert>
+        </Snackbar>
+
+        <Snackbar
+          open={snackbarSuccessOpen}
+          autoHideDuration={6000}
+          onClose={handleSnackbarSuccessClose}
+        >
+          <MuiAlert
+            elevation={6}
+            variant="filled"
+            severity="success"
+            onClose={handleSnackbarSuccessClose}
+          >
+            {snackbarSuccessMessage}
+          </MuiAlert>
+        </Snackbar>
 
       </Container>
     </ThemeProvider>
