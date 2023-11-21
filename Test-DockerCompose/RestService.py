@@ -54,6 +54,35 @@ def get_user_by_username(username):
 
     except psycopg2.Error as e:
         abort(500, "Error executing SQL query: " + str(e))
+
+def check_if_user_exists_by_username(username):
+    conn = connect_to_database()
+    if conn is None:
+        abort(500, "Error connecting to the PostgreSQL database.")
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM user_credentials WHERE username = %s", (username,))
+        row = cursor.fetchone()
+
+        if row:
+            user_dict = {
+                'id': row[0],
+                'firstname': row[1],
+                'lastname': row[2],
+                'username': row[3],
+                'password': row[4]
+            }
+            cursor.close()
+            conn.close()
+            return True
+        else:
+            cursor.close()
+            conn.close()
+            return False
+
+    except psycopg2.Error as e:
+        abort(500, "Error executing SQL query: " + str(e))
         
 def add_user_to_database(firstname, lastname, username, password):
     conn = connect_to_database()
@@ -138,12 +167,12 @@ def add_user():
     password = data.get('password')
 
     if username and password:
-        existing_user_response = get_user_by_username(username)
-        if isinstance(existing_user_response, str) and "User not found" not in existing_user_response:
-            return "Username already exists. Please choose a different username."
-
-        result = add_user_to_database(firstname, lastname, username, password)
-        return result
+        existing_user_response = check_if_user_exists_by_username(username)
+        if existing_user_response:
+            abort(404, "Username already exists. Please choose a different username.")
+        else:
+            result = add_user_to_database(firstname, lastname, username, password)
+            return result
     else:
         return "Invalid data. 'firstname', 'lastname', 'username', and 'password' are required in the request."
 

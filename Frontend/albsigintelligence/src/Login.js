@@ -69,6 +69,7 @@ export default function SignIn() {
       console.log('User Data:', userData.user);
       if (username === userData.user.username && password === userData.user.password) {
         sessionStorage.setItem('isLoggedIn', 'true');
+        console.log("Session created successfully");
         navigate('/Visualization');
       } else {
         setSnackbarMessage("Password not correct! Try again!");
