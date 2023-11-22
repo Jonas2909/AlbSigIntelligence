@@ -50,6 +50,7 @@ export default function SignIn() {
       return
     }
     try {
+      console.log("Fetching URL: http://localhost:5000/GetUser");
       const response = await fetch('http://localhost:5000/GetUser', {
         headers: { "Content-Type": "application/json" },
         method: "POST",
@@ -110,6 +111,7 @@ export default function SignIn() {
     });
 
     try {
+      console.log("Fetching URL: http://localhost:5000/AddUser");
       const response = await fetch('http://localhost:5000/AddUser', {
         headers: { "Content-Type": "application/json" },
         method: "POST",
