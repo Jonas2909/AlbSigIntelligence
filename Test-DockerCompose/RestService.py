@@ -49,6 +49,22 @@ def add_user():
     else:
         return "Invalid data. 'firstname', 'lastname', 'username', and 'password' are required in the request."
 
+### test Data insertion
+app.route("/AddGraphData", methods=['POST'])
+def add_graph_data():
+    data = request.get_json()
+    time_stamp = data.get('time_stamp')
+    quantity = data.get('quantity')
+
+    if time_stamp and quantity:
+	result = add_graph_data_database(time_stamp, quantity)
+	return result
+    else:
+        return "Invalid data. 'time_stamp', 'quantity'"
+
+### end Test Data insertion
+
+
 @app.route("/DeleteUser", methods=['DELETE'])
 def delete_user():
     data = request.get_json()
