@@ -56,30 +56,30 @@ export default function SignIn() {
         method: "POST",
         mode: 'cors',
         redirect: 'follow',
-        body: JSON.stringify({ "username": username }),
+        body: JSON.stringify({ "username": username, "password": password }),
       });
-
+      if(response.status === 200) {
+        sessionStorage.setItem('isLoggedIn', 'true');
+        console.log("Session created successfully");
+        navigate('/Visualization');
+      } 
+      if (response.status === 401) {
+        setSnackbarMessage("Password not correct! Try again!");
+        setSnackbarOpen(true);
+      }
       if (response.status === 404) {
         setSnackbarMessage("User not found in the database. Please sign-up.");
         setSnackbarOpen(true);
-      } else if (response.status === 500) {
+      } 
+      if (response.status === 500) {
         setSnackbarMessage("Database connection failed");
         setSnackbarOpen(true);
-      } else if (!response.ok) {
+      } else {
         throw new Error(`Request failed with status: ${response.status}`);
       }
 
       const userData = await response.json();
       console.log('User Data:', userData.user);
-      if (username === userData.user.username && password === userData.user.password) {
-        sessionStorage.setItem('isLoggedIn', 'true');
-        console.log("Session created successfully");
-        navigate('/Visualization');
-      } else {
-        setSnackbarMessage("Password not correct! Try again!");
-        setSnackbarOpen(true);
-      }
-
     } catch (error) {
       console.error(error.message);
     }
