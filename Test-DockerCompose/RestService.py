@@ -1,9 +1,8 @@
 from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
-import bcrypt
 from database import (
     get_all_users,
-    get_user_by_username,
+    get_user_by_username_and_password,
     add_user_to_database,
     delete_user_by_username,
     check_if_user_exists_by_username,
@@ -24,9 +23,10 @@ def get_all_users_route():
 def get_user():
     data = request.get_json()
     username = data.get('username')
+    password = data.get('password')
 
     if username:
-        result = get_user_by_username(username)
+        result = get_user_by_username_and_password(username, password)
         return result
     else:
         return "Invalid data. 'username' is required in the request."
@@ -38,16 +38,13 @@ def add_user():
     lastname = data.get('lastname')
     username = data.get('username')
     password = data.get('password')
-
-    salt = bcrypt.gensalt(rounds=10)
-    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
     
     if username and password:
         existing_user_response = check_if_user_exists_by_username(username)
         if existing_user_response:
             abort(404, "Username already exists. Please choose a different username.")
         else:
-            result = add_user_to_database(firstname, lastname, username, hashed_password)
+            result = add_user_to_database(firstname, lastname, username, password)
             return result
     else:
         return "Invalid data. 'firstname', 'lastname', 'username', and 'password' are required in the request."

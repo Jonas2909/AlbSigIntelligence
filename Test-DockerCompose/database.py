@@ -1,11 +1,15 @@
 import psycopg2
+import bcrypt
 from flask import abort, jsonify
+import logging
 
 database_name = "exampledb"
 user = "postgres"
 password = "mysecretpassword"
 host = "local_db"
 port = "5432"
+
+logging.basicConfig(level=logging.DEBUG)
 
 def connect_to_database():
     try:
@@ -48,10 +52,10 @@ def get_all_users():
     except psycopg2.Error as e:
         return "Error executing SQL query: " + str(e)
 
-def get_user_by_username(username):
+def get_user_by_username_and_password(username, password):
     conn = connect_to_database()
     if conn is None:
-        abort(500, "Error connecting to the PostgreSQL database.")
+        return {'error': 'Error connecting to the PostgreSQL database.'}, 500
 
     try:
         cursor = conn.cursor()
@@ -66,16 +70,29 @@ def get_user_by_username(username):
                 'username': row[3],
                 'password': row[4]
             }
-            cursor.close()
-            conn.close()
-            return jsonify(user=user_dict)
+
+            hashed_password_from_db = user_dict['password'].encode('utf-8')
+
+            logging.info(f"Retrieved hashed password from DB: {hashed_password_from_db}, Length: {len(hashed_password_from_db)}")
+            logging.info(f"User-provided password: {password.encode('utf-8')}, Length: {len(password.encode('utf-8'))}")
+
+            if bcrypt.checkpw(password.encode('utf-8'), hashed_password_from_db):
+                cursor.close()
+                conn.close()
+                return {'message': 'Correct password.'}
+
+            else:
+                cursor.close()
+                conn.close()
+                return {'error': 'Incorrect password.'}, 401
+
         else:
             cursor.close()
             conn.close()
-            abort(404, "User not found.")
+            return {'error': 'User not found.'}, 404
 
     except psycopg2.Error as e:
-        abort(500, "Error executing SQL query: " + str(e))
+        return {'error': 'Error executing SQL query: ' + str(e)}, 500
 
 def check_if_user_exists_by_username(username):
     conn = connect_to_database()
@@ -107,13 +124,19 @@ def check_if_user_exists_by_username(username):
         abort(500, "Error executing SQL query: " + str(e))
         
 def add_user_to_database(firstname, lastname, username, password):
+
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+
+    hased_password_decoded = hashed_password.decode('utf-8')
+    
     conn = connect_to_database()
     if conn is None:
         return "Error connecting to the PostgreSQL database."
 
     try:
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO user_credentials (firstname, lastname, username, password) VALUES (%s, %s, %s, %s)", (firstname, lastname,  username, password))
+        cursor.execute("INSERT INTO user_credentials (firstname, lastname, username, password) VALUES (%s, %s, %s, %s)", (firstname, lastname,  username, hased_password_decoded))
         conn.commit()
         cursor.close()
         conn.close()
