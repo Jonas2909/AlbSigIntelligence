@@ -157,3 +157,22 @@ def delete_user_by_username(username):
 
     except psycopg2.Error as e:
         return "Error deleting user from the database: " + str(e)
+        
+### start insert test data
+def add_graph_data_database(time_stamp, quantity):
+conn = connect_to_database()
+
+    if conn is None:
+        return "Error connecting to the PostgreSQL database."
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO user_credentials (time_stamp, quantity) VALUES (%s, %s)", (time_stamp, quantity))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return "Data added to the database."
+
+    except psycopg2.Error as e:
+        return "Error adding Data to the database: " + str(e)
+### end insert test data
