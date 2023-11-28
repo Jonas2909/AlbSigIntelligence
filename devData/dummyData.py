@@ -1,5 +1,6 @@
 #!/bin/python3
 from random import randrange
+from datetime import datetime
 
 # init fixed data of scan
 f_line = "Interface: <interFace>, type: EN10MB, MAC: <ma:cm:ac:ma:cm:ma>, IPv4: <141.87.XYZ.TUV>\n"
@@ -34,3 +35,5 @@ for i in range(100):
 	mac = mac[:-1]
 
 	data_out.write(ip_addr + tab + mac + tab + default + tab + content[i])
+
+print(datetime.now())
