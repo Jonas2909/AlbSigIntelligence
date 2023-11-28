@@ -73,9 +73,6 @@ def get_user_by_username_and_password(username, password):
 
             hashed_password_from_db = user_dict['password'].encode('utf-8')
 
-            logging.info(f"Retrieved hashed password from DB: {hashed_password_from_db}, Length: {len(hashed_password_from_db)}")
-            logging.info(f"User-provided password: {password.encode('utf-8')}, Length: {len(password.encode('utf-8'))}")
-
             if bcrypt.checkpw(password.encode('utf-8'), hashed_password_from_db):
                 cursor.close()
                 conn.close()
