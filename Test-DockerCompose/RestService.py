@@ -51,7 +51,6 @@ def add_user():
         return "Invalid data. 'firstname', 'lastname', 'username', and 'password' are required in the request."
 
 @app.route("/DeleteUser", methods=['DELETE'])
-
 def delete_user():
     data = request.get_json()
     username = data.get('username')
@@ -62,13 +61,11 @@ def delete_user():
     else:
         return "Invalid data. 'username' is required in the request."
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
-    
 ### test Data insertion
 @app.route("/AddGraphData", methods=['POST'])
 def add_graph_data():
     data = request.get_json()
+    print(data)
     time_stamp = data.get('time_stamp')
     quantity = data.get('quantity')
     
@@ -79,3 +76,6 @@ def add_graph_data():
         return "Invalid data. 'time_stamp', 'quantity'"
 
 ### end Test Data insertion
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)

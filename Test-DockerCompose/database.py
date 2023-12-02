@@ -160,7 +160,7 @@ def delete_user_by_username(username):
         
 ### start insert test data
 def add_graph_data_database(time_stamp, quantity):
-conn = connect_to_database()
+    conn = connect_to_database()
 
     if conn is None:
         return "Error connecting to the PostgreSQL database."
