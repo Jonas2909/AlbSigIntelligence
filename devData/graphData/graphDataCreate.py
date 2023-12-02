@@ -1,6 +1,9 @@
 #!/bin/python3
 from datetime import datetime
 import requests
+import random
+
+url = 'http://0.0.0.0:5000/AddGraphData'
 
 year = 2023
 month = 11
@@ -21,10 +24,10 @@ for d in days:
         time_stamps.append(int(unix_timestamp))
 
 # send request
-    
-"""
-url = 'http://0.0.0.0:5000/AddGraphData'
-data =  {'time_stamp': 5,'quantity':5}
-response = requests.post(url, json=data)
-print(response.text)
-"""
+for t in time_stamps:
+    amount = random.randint(45, 90)
+    data =  { 'time_stamp': t,'quantity': amount }
+    response = requests.post(url, json=data)
+    if response.status_code != 200:
+        print(response)
+        print(response.text)
