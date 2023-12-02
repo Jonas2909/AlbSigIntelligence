@@ -7,6 +7,7 @@ from database import (
     delete_user_by_username,
     check_if_user_exists_by_username,
     add_graph_data_database,
+    get_graph_data,
 )
 
 app = Flask(__name__)
@@ -68,14 +69,21 @@ def add_graph_data():
     print(data)
     time_stamp = data.get('time_stamp')
     quantity = data.get('quantity')
-    
+    print(time_stamp)
     if time_stamp and quantity:
         result = add_graph_data_database(time_stamp, quantity)
         return result
     else:
-        return "Invalid data. 'time_stamp', 'quantity'"
+        return data
 
 ### end Test Data insertion
+
+### start read Test Data
+@app.route("/GetGraphData")
+def get_graph_data_route():
+    return get_graph_data()
+
+### end read Test Data
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

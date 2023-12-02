@@ -167,7 +167,7 @@ def add_graph_data_database(time_stamp, quantity):
 
     try:
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO user_credentials (time_stamp, quantity) VALUES (%s, %s)", (time_stamp, quantity))
+        cursor.execute("INSERT INTO measurements (time_stamp, quantity) VALUES (%s, %s)", (time_stamp, quantity))
         conn.commit()
         cursor.close()
         conn.close()
@@ -176,3 +176,29 @@ def add_graph_data_database(time_stamp, quantity):
     except psycopg2.Error as e:
         return "Error adding Data to the database: " + str(e)
 ### end insert test data
+
+### start read test data
+def get_graph_data():
+    conn = connect_to_database()
+    if conn is None:
+        return "Error connecting to the PostgreSQL database."
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM measurements")
+        rows = cursor.fetchall()
+        data_list = []
+        for row in rows:
+            data_dict = {
+                'id': row[0],
+                'time_stamp': row[1],
+                'quantity': row[2]
+            }
+            data_list.append(data_dict)
+        cursor.close()
+        conn.close()
+        return jsonify(data=data_list)
+
+    except psycopg2.Error as e:
+        return "Error executing SQL query: " + str(e)
+### end read test data

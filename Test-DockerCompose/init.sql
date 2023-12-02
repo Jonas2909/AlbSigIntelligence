@@ -20,3 +20,4 @@ INSERT INTO measurements (time_stamp, quantity) VALUES (1701174250, 25);
 INSERT INTO measurements (time_stamp, quantity) VALUES (1701176250, 15);
 
 GRANT ALL ON user_credentials TO postgres;
+GRANT ALL ON measurements TO postgres;
