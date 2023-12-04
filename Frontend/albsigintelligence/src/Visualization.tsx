@@ -241,7 +241,6 @@ export default function Visualization() {
               margin={{
                 top: 0, right: 10, bottom: 0, left: 0
               }}
-              legend={{ fill: 'black' }}
             >
               <CartesianGrid strokeDasharray="6 6" />
               <XAxis
@@ -263,6 +262,45 @@ export default function Visualization() {
           </ResponsiveContainer>
         </Box>
       </Paper>
+
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: 5, // Adjust the top margin as needed
+        }}
+      >
+        <Button
+          className={classes.buttonSend}
+          variant="contained"
+          color="primary"
+          style={{ marginRight: '20px' }}
+          size='large'
+          //onClick={() => handleButtonClick('day')}
+        >
+          Day
+        </Button>
+        <Button
+          className={classes.buttonSend}
+          variant="contained"
+          color="primary"
+          style={{ marginRight: '20px' }}
+          size='large'
+          //onClick={() => handleButtonClick('week')}
+        >
+          Week
+        </Button>
+        <Button
+          className={classes.buttonSend}
+          variant="contained"
+          color="primary"
+          size='large'
+          //onClick={() => handleButtonClick('month')}
+        >
+          Month
+        </Button>
+      </Box>
+
 
       <Snackbar
         open={snackbarOpen}
