@@ -62,7 +62,6 @@ def delete_user():
     else:
         return "Invalid data. 'username' is required in the request."
 
-### test Data insertion
 @app.route("/AddGraphData", methods=['POST'])
 def add_graph_data():
     data = request.get_json()
@@ -76,14 +75,9 @@ def add_graph_data():
     else:
         return data
 
-### end Test Data insertion
-
-### start read Test Data
 @app.route("/GetGraphData")
 def get_graph_data_route():
     return get_graph_data()
-
-### end read Test Data
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

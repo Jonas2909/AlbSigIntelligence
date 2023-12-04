@@ -158,7 +158,6 @@ def delete_user_by_username(username):
     except psycopg2.Error as e:
         return "Error deleting user from the database: " + str(e)
         
-### start insert test data
 def add_graph_data_database(time_stamp, quantity):
     conn = connect_to_database()
 
@@ -175,9 +174,7 @@ def add_graph_data_database(time_stamp, quantity):
 
     except psycopg2.Error as e:
         return "Error adding Data to the database: " + str(e)
-### end insert test data
 
-### start read test data
 def get_graph_data():
     conn = connect_to_database()
     if conn is None:
@@ -201,4 +198,3 @@ def get_graph_data():
 
     except psycopg2.Error as e:
         return "Error executing SQL query: " + str(e)
-### end read test data
