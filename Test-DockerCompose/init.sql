@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS user_credentials (
 
 CREATE TABLE IF NOT EXISTS measurements (
     id serial PRIMARY KEY,
-    time_stamp int NOT NULL,
+    time_stamp bigint NOT NULL,
     quantity int
 
 );

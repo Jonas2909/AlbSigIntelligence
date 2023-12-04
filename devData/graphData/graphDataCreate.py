@@ -23,7 +23,7 @@ time_stamps = []
 for d in days:
     for i, h in enumerate(hours):
         unix_timestamp = (datetime(year, month, d, h, minutes[i]) - datetime(1970, 1, 1)).total_seconds()
-        time_stamps.append(int(unix_timestamp))
+        time_stamps.append(unix_timestamp)
 
 # send requests
 for t in time_stamps:
