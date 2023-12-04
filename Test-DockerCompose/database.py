@@ -198,3 +198,32 @@ def get_graph_data():
 
     except psycopg2.Error as e:
         return "Error executing SQL query: " + str(e)
+
+def get_graph_data_from_to(timestamp_from, timestamp_to):
+    conn = connect_to_database()
+    if conn is None:
+        return "Error connecting to the PostgreSQL database."
+
+    try:
+        cursor = conn.cursor()
+        query = "SELECT * FROM measurements WHERE time_stamp BETWEEN %s AND %s"
+        cursor.execute(query, (timestamp_from, timestamp_to))
+        rows = cursor.fetchall()
+
+        logging.info(rows)
+
+        data_list = []
+        for row in rows:
+            data_dict = {
+                'id': row[0],
+                'time_stamp': row[1],
+                'quantity': row[2],
+            }
+            data_list.append(data_dict)
+
+        cursor.close()
+        conn.close()
+        return jsonify(data=data_list)
+
+    except psycopg2.Error as e:
+        return "Error executing SQL query: " + str(e)

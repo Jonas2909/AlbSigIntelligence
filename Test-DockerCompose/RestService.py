@@ -8,6 +8,7 @@ from database import (
     check_if_user_exists_by_username,
     add_graph_data_database,
     get_graph_data,
+    get_graph_data_from_to,
 )
 
 app = Flask(__name__)
@@ -65,19 +66,28 @@ def delete_user():
 @app.route("/AddGraphData", methods=['POST'])
 def add_graph_data():
     data = request.get_json()
-    print(data)
     time_stamp = data.get('time_stamp')
     quantity = data.get('quantity')
-    print(time_stamp)
     if time_stamp and quantity:
         result = add_graph_data_database(time_stamp, quantity)
         return result
     else:
-        return data
+        abort(404, "Error Adding Graph Data to database.")
 
-@app.route("/GetGraphData")
+@app.route("/GetGraphData", methods=['GET'])
 def get_graph_data_route():
     return get_graph_data()
+
+@app.route("/GetGraphDataFromTo", methods=['POST'])
+def get_graph_data_from_to_route():
+    data = request.get_json()
+    time_stamp_from = data.get('time_stamp_from')
+    time_stamp_to = data.get('time_stamp_to')
+    if time_stamp_from and time_stamp_to:
+        result = get_graph_data_from_to(time_stamp_from, time_stamp_to)
+        return result
+    else:
+        abort(404, "Invalid data. Timestamps are required in the request")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
