@@ -9,8 +9,6 @@ services:
       - db
     ports:
       - "5000:5000"
-    depends_on:
-      - db
     command: ["python3", "RestService.py"]
     container_name: flask-rest-api
     networks:
@@ -28,6 +26,18 @@ services:
     networks:
       - localnetwork
 
+  scanner:
+    build:
+      context: .
+      dockerfile: Dockerfile.scanner
+    depends_on:
+      - app
+    command: ["sh", "./scanner.sh"]
+    container_name: scanner
+    volumes:
+      - ./:/app
+    network_mode: "host"
+    
 networks:
   localnetwork:
 

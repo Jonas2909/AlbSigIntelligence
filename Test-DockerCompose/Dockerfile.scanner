@@ -1,0 +1,8 @@
+FROM alpine:latest
+RUN apk --no-cache add arp-scan
+COPY scanner.sh /app/scanner.sh
+WORKDIR /app
+RUN chmod +x scanner.sh
+CMD ["sh", "./scanner.sh"]
+
+
