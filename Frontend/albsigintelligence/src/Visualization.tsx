@@ -23,6 +23,9 @@ import { usePromiseTracker } from "react-promise-tracker"
 import { createTheme } from '@mui/material/styles';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
+import Link from '@mui/material/Link';
 
 const defaultTheme = createTheme();
 
@@ -35,10 +38,38 @@ export default function Visualization() {
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [measurements, setMeasurements] = useState([]);
 
+  var today = new Date();
+
+  const [endDate, setEndDate] = useState<number>(today.setHours(0, 0, 0, 0).valueOf());
+  const [startDate, setStartDate] = useState<number>(today.setDate(today.getDate() + 1));
+  const [dateType, setDateType] = useState<string>('');
+
   var currentDate: Date = new Date()
   var yesterday: Date = new Date()
 
   yesterday.setDate(currentDate.getDate() - 1)
+
+  function getMonday(d: Date) {
+    d = new Date(d);
+    var day = d.getDay(),
+      diff = d.getDate() - day + (day === 0 ? -6 : 1); // adjust when day is sunday
+
+    d.setHours(0, 0, 0, 0);
+    return new Date(d.setDate(diff));
+  }
+
+  function Copyright() {
+    return (
+      <Typography variant="body2" align="center" style={{ marginTop: '100px' }}>
+        {'Copyright © '}
+        <Link color="inherit" href="https://www.hs-albsig.de/">
+          AlbSigIntelligence
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+  }
 
   const [dateRange, setDateRange] = useState({
     from: new Date(),
@@ -57,12 +88,13 @@ export default function Visualization() {
     navigate('/');
   };
 
-  const handleSnackbarClose = (event, reason) => {
+  const handleSnackbarClose = (event: React.SyntheticEvent, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
+
     setSnackbarOpen(false);
-  };
+  }
 
   const handleDateChange = (date, field) => {
     setDateRange((prevDateRange) => ({
@@ -71,14 +103,8 @@ export default function Visualization() {
     }));
   };
 
-  const fetchMeasurements = async () => {
+  const fetchMeasurements = async (fromUtcInSeconds, toUtcInSeconds) => {
     console.log("Fetching URL:", "http://localhost:5000/GetGraphDataFromTo");
-
-    const fromUtcInSeconds = moment.utc(dateRange.from).utc().valueOf() / 1000;
-    const toUtcInSeconds = moment.utc(dateRange.to).utc().valueOf() / 1000;
-
-    console.log('From UTC in seconds:', fromUtcInSeconds);
-    console.log('To UTC in seconds:', toUtcInSeconds);
 
     try {
       const requestBody = {
@@ -114,6 +140,60 @@ export default function Visualization() {
       console.error("Error fetching Measurements:", error);
       throw error;
     }
+  };
+
+  const handleDateTypeChange = async (dateType: string) => {
+
+    var date = new Date();
+    console.log("Function handleDateTypeChange: date=" + date);
+
+    switch (dateType) {
+      case "day":
+        setDateType("day");
+
+        setStartDate(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0).valueOf());
+        setEndDate(new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0).valueOf());
+        console.log(new Date(startDate).toLocaleString());
+        console.log(new Date(endDate).toLocaleString());
+        break;
+
+      case "week":
+        setDateType("week");
+
+        let monday = getMonday(new Date());
+        setStartDate(monday.valueOf())
+        setEndDate(new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 7, 0, 0, 0, 0).valueOf())
+        console.log(new Date(startDate).toLocaleString());
+        console.log(new Date(endDate).toLocaleString());
+        break;
+
+      case "month":
+        setDateType("month");
+        setStartDate(new Date(date.getFullYear(), date.getMonth(), 1).valueOf());
+        setEndDate(new Date(date.getFullYear(), date.getMonth() + 1, 1, 0, 0, 0, 0).valueOf());
+        console.log(new Date(startDate).toLocaleString());
+        console.log(new Date(endDate).toLocaleString());
+        break;
+
+      default:
+        setDateType("");
+        console.warn("Chart : handleDateTypeChange : wrong type!")
+        setStartDate(0);
+
+        break;
+    }
+
+
+    const startTimestamp = Math.floor(startDate.valueOf() / 1000);
+    const endTimestamp = Math.floor(endDate.valueOf() / 1000);
+
+    setDateType(dateType);
+    await fetchMeasurements(startTimestamp, endTimestamp);
+  };
+
+  const resetGraph = () => {
+    console.log("Reseting graph...");
+    setMeasurements([]);
   };
 
   return (
@@ -182,7 +262,7 @@ export default function Visualization() {
                       variant="contained"
                       color="primary"
                       disabled={promiseInProgress}
-                      onClick={fetchMeasurements}
+                      onClick={() => fetchMeasurements(dateRange.from.getTime() / 1000, dateRange.to.getTime() / 1000)}
                     >
                       Send
                     </Button>
@@ -193,6 +273,7 @@ export default function Visualization() {
                       variant="contained"
                       color="primary"
                       disabled={promiseInProgress}
+                      onClick={resetGraph}
                     >
                       Reset
                     </Button>
@@ -203,6 +284,13 @@ export default function Visualization() {
                       label="MAC address"
                       type="search"
                       variant="standard"
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <SearchIcon />
+                          </InputAdornment>
+                        ),
+                      }}
                     />
                   </Grid>
                 </Grid>
@@ -238,25 +326,34 @@ export default function Visualization() {
           <ResponsiveContainer minWidth={500} height="100%" minHeight={100}>
             <BarChart
               data={measurements}
-              margin={{
-                top: 0, right: 10, bottom: 0, left: 0
-              }}
+              margin={{ top: 0, right: 10, bottom: 0, left: 0 }}
             >
               <CartesianGrid strokeDasharray="6 6" />
               <XAxis
                 dataKey="time_stamp"
                 allowDataOverflow={true}
                 stroke={defaultTheme.palette.text.primary}
-                tickFormatter={(unixTime) => moment.unix(unixTime).format('DD.MM.YY HH:mm')}
-                domain={['auto', 'auto']}
+                tickFormatter={(unixTime) => moment.unix(unixTime).format('DD.MM.YY HH:mm')
+                }
+                domain={[startDate, endDate]}
               />
               <YAxis
-                orientation='left'
+                orientation="left"
                 width={100}
                 stroke={defaultTheme.palette.text.primary}
               />
-              <Tooltip labelFormatter={(unixTime) => moment.unix(unixTime).format('DD.MM.YY HH:mm')} isAnimationActive={false} />
-              <Bar dataKey="quantity" fill={defaultTheme.palette.primary.main} name='Number of Clients in Network' isAnimationActive={true} />
+              <Tooltip
+                labelFormatter={(unixTime) =>
+                  moment.unix(unixTime).format('DD.MM.YY HH:mm')
+                }
+                isAnimationActive={false}
+              />
+              <Bar
+                dataKey="quantity"
+                fill={defaultTheme.palette.primary.main}
+                name="Number of Clients in Network"
+                isAnimationActive={true}
+              />
               <Legend align="center" verticalAlign="top" height={36} />
             </BarChart>
           </ResponsiveContainer>
@@ -267,7 +364,7 @@ export default function Visualization() {
         sx={{
           display: 'flex',
           justifyContent: 'center',
-          marginTop: 5, // Adjust the top margin as needed
+          marginTop: 5,
         }}
       >
         <Button
@@ -276,7 +373,7 @@ export default function Visualization() {
           color="primary"
           style={{ marginRight: '20px' }}
           size='large'
-          //onClick={() => handleButtonClick('day')}
+          onClick={() => handleDateTypeChange('day')}
         >
           Day
         </Button>
@@ -286,7 +383,7 @@ export default function Visualization() {
           color="primary"
           style={{ marginRight: '20px' }}
           size='large'
-          //onClick={() => handleButtonClick('week')}
+          onClick={() => handleDateTypeChange('week')}
         >
           Week
         </Button>
@@ -295,17 +392,17 @@ export default function Visualization() {
           variant="contained"
           color="primary"
           size='large'
-          //onClick={() => handleButtonClick('month')}
+          onClick={() => handleDateTypeChange('month')}
         >
           Month
         </Button>
       </Box>
 
+      <Copyright/>
 
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={6000}
-        onClose={handleSnackbarClose}
       >
         <MuiAlert
           elevation={6}

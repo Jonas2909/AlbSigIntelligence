@@ -6,7 +6,7 @@ import random
 url = 'http://0.0.0.0:5000/AddGraphData'
 
 year = 2023
-month = 11
+month = 12
 days = [] 
 # 01.11.2023 = Mittwoch
 for day in range(1,31):
