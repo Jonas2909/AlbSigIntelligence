@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, makeStyles, Typography, Grid, TextField } from '@material-ui/core';
+import { Grid, TextField, Button, InputAdornment, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Typography, makeStyles, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import {
@@ -23,7 +23,6 @@ import { usePromiseTracker } from "react-promise-tracker"
 import { createTheme } from '@mui/material/styles';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import Link from '@mui/material/Link';
 
@@ -37,6 +36,11 @@ export default function Visualization() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [measurements, setMeasurements] = useState([]);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [searchedString, setSearchedString] = useState('');
+
+  const timestamps = ["2023-01-01 10:00:00", "2023-01-01 12:30:00", "2023-01-02 15:45:00", "2023-01-02 15:45:00"];
+
 
   var today = new Date();
 
@@ -196,11 +200,23 @@ export default function Visualization() {
     setMeasurements([]);
   };
 
+  const handleSearch = () => {
+    // Add your search logic here
+    // For demonstration purposes, let's assume the search is successful, and we open the dialog
+    const searchString = "Searched String"; // Replace this with the actual searched string
+    setSearchedString(searchString);
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
   return (
     <div>
       <h1 style={{
         backgroundColor: defaultTheme.palette.primary.main,
-        padding: '10px', 
+        padding: '10px',
         color: 'black',
         border: '2px solid black',
         borderRadius: '5px',
@@ -293,7 +309,9 @@ export default function Visualization() {
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
-                            <SearchIcon />
+                            <Button className={classes.buttonSend} variant="contained" color="primary" onClick={handleSearch} style={{ marginBottom: '18px' }}>
+                              <SearchIcon />
+                            </Button>
                           </InputAdornment>
                         ),
                       }}
@@ -419,6 +437,31 @@ export default function Visualization() {
           {snackbarMessage}
         </MuiAlert>
       </Snackbar>
+
+      <Dialog open={openDialog} onClose={handleCloseDialog}>
+        <DialogTitle>MAC-Address: {searchedString}</DialogTitle>
+        <DialogContent>
+          <Table>
+            <TableHead>
+              <TableRow style={{ backgroundColor: '#f0f0f0'}}>
+                <TableCell align='center'>Device connection time stamps</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {timestamps.map((timestamp, index) => (
+                <TableRow key={index} style={{ backgroundColor: index % 2 === 1 ? '#f0f0f0' : 'white' }}>
+                  <TableCell align='center'>{timestamp}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
 
     </div>
   );
