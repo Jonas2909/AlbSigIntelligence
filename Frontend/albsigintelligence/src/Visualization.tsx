@@ -198,8 +198,14 @@ export default function Visualization() {
 
   return (
     <div>
-      <h1 style={{ backgroundColor: defaultTheme.palette.primary.main, padding: '10px', color: 'black', border: '2px solid black', borderRadius: '5px', marginBottom: '0px' }}>Visualization</h1>
-
+      <h1 style={{
+        backgroundColor: defaultTheme.palette.primary.main,
+        padding: '10px', 
+        color: 'black',
+        border: '2px solid black',
+        borderRadius: '5px',
+        margin: '0 2px',
+      }}>Visualization</h1>
       <Dialog open={isDialogOpen} onClose={handleDialogClose}>
         <DialogTitle>Error</DialogTitle>
         <DialogContent>
@@ -212,7 +218,7 @@ export default function Visualization() {
         </DialogActions>
       </Dialog>
 
-      <Accordion defaultExpanded style={{ border: '2px solid black', borderRadius: '5px', marginTop: '5px', marginBottom: '10px' }}>
+      <Accordion defaultExpanded style={{ border: '2px solid black', borderRadius: '5px', marginTop: '-1px', marginBottom: '20px', marginLeft: '2px', marginRight: '2px' }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
@@ -398,7 +404,7 @@ export default function Visualization() {
         </Button>
       </Box>
 
-      <Copyright/>
+      <Copyright />
 
       <Snackbar
         open={snackbarOpen}
