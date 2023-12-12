@@ -85,7 +85,16 @@ export default function Visualization() {
     if (!isLoggedIn) {
       setDialogOpen(true);
     }
-  }, []);
+
+    const fetchData = async () => {
+      const startTimestamp = Math.floor(startDate.valueOf() / 1000);
+      const endTimestamp = Math.floor(endDate.valueOf() / 1000);
+      await fetchMeasurements(startTimestamp, endTimestamp);
+    };
+
+    fetchData();
+
+  }, [dateType, startDate, endDate]);
 
   const handleDialogClose = () => {
     setDialogOpen(false);
@@ -132,45 +141,45 @@ export default function Visualization() {
         } else {
           setSnackbarMessage("Could not find any measurements in the given timespan.");
           setSnackbarOpen(true);
+          resetGraph();
         }
 
       } else if (response.status === 404) {
         setSnackbarMessage("Could not read measurements from the database.");
         setSnackbarOpen(true);
+        resetGraph();
       } else {
         throw new Error(`Request failed with status: ${response.status}`);
       }
     } catch (error) {
       console.error("Error fetching Measurements:", error);
+      resetGraph();
       throw error;
     }
   };
 
   const handleDateTypeChange = async (dateType: string) => {
-
     var date = new Date();
     console.log("Function handleDateTypeChange: date=" + date);
-
+  
     switch (dateType) {
       case "day":
         setDateType("day");
-
         setStartDate(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0).valueOf());
         setEndDate(new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0).valueOf());
         console.log(new Date(startDate).toLocaleString());
         console.log(new Date(endDate).toLocaleString());
         break;
-
+  
       case "week":
         setDateType("week");
-
         let monday = getMonday(new Date());
         setStartDate(monday.valueOf())
         setEndDate(new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 7, 0, 0, 0, 0).valueOf())
         console.log(new Date(startDate).toLocaleString());
         console.log(new Date(endDate).toLocaleString());
         break;
-
+  
       case "month":
         setDateType("month");
         setStartDate(new Date(date.getFullYear(), date.getMonth(), 1).valueOf());
@@ -178,20 +187,19 @@ export default function Visualization() {
         console.log(new Date(startDate).toLocaleString());
         console.log(new Date(endDate).toLocaleString());
         break;
-
+  
       default:
         setDateType("");
         console.warn("Chart : handleDateTypeChange : wrong type!")
         setStartDate(0);
-
         break;
     }
-
-
+  
+    setDateType(dateType);
+  
     const startTimestamp = Math.floor(startDate.valueOf() / 1000);
     const endTimestamp = Math.floor(endDate.valueOf() / 1000);
-
-    setDateType(dateType);
+  
     await fetchMeasurements(startTimestamp, endTimestamp);
   };
 
