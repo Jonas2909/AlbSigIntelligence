@@ -1,8 +1,8 @@
 Interface: ens33, type: EN10MB, MAC: 00:0c:29:1b:e0:91, IPv4: 192.168.246.128
 Starting arp-scan 1.10.0 with 256 hosts (https://github.com/royhills/arp-scan)
 192.168.246.1	00:50:56:c0:00:08	VMware, Inc.
-192.168.246.2	00:50:56:f5:5d:5e	VMware, Inc.
-192.168.246.254	00:50:56:eb:c3:e7	VMware, Inc.
+192.168.246.2	00:50:56:e0:32:25	VMware, Inc.
+192.168.246.254	00:50:56:e4:0a:3c	VMware, Inc.
 
 3 packets received by filter, 0 packets dropped by kernel
-Ending arp-scan 1.10.0: 256 hosts scanned in 2.059 seconds (124.33 hosts/sec). 3 responded
+Ending arp-scan 1.10.0: 256 hosts scanned in 2.075 seconds (123.37 hosts/sec). 3 responded
