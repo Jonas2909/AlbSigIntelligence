@@ -1,0 +1,8 @@
+* * * * * /bin/mytest
+
+# * min (0 - 59)
+# * hour (0 - 23)
+# * day (1-31)
+# * month
+# * weekday (0-6) || sun, mon, tue, ... [sun=0]
+# command
