@@ -45,6 +45,8 @@ List of implemented and working Requests: <br>
 /GetUser <br>
 /AddUser <br>
 /DeleteUser <br>
+/AddGraphData <br>
+/GetGraphData <br>
 
 ## Run Python RestService as Docker Container manually
 
