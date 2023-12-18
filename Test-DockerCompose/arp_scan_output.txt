@@ -5,4 +5,4 @@ Starting arp-scan 1.10.0 with 256 hosts (https://github.com/royhills/arp-scan)
 192.168.246.254	00:50:56:e4:0a:3c	VMware, Inc.
 
 3 packets received by filter, 0 packets dropped by kernel
-Ending arp-scan 1.10.0: 256 hosts scanned in 2.075 seconds (123.37 hosts/sec). 3 responded
+Ending arp-scan 1.10.0: 256 hosts scanned in 1.951 seconds (131.21 hosts/sec). 3 responded

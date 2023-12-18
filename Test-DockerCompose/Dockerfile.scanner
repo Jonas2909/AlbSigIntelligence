@@ -1,8 +1,15 @@
 FROM alpine:latest
+RUN apk update
+RUN apk add py-pip
+RUN apk add --no-cache python3-dev
 RUN apk --no-cache add arp-scan
-COPY scanner.sh /app/scanner.sh
+RUN pip install --upgrade pip
 WORKDIR /app
-RUN chmod +x scanner.sh
-CMD ["sh", "./scanner.sh"]
+COPY . /app
+COPY requirements_scanner.txt /app/requirements_scanner.txt
+COPY scanner.py /app/scanner.py
+RUN pip --no-cache-dir install -r requirements_scanner.txt
+RUN chmod +x scanner.py
+CMD ["python3", "scanner.py"]
 
 
