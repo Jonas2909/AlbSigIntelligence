@@ -227,3 +227,30 @@ def get_graph_data_from_to(timestamp_from, timestamp_to):
 
     except psycopg2.Error as e:
         return "Error executing SQL query: " + str(e)
+
+def get_entries_by_mac_address(mac_address):
+    conn = connect_to_database()
+    if conn is None:
+        return "Error connecting to the PostgreSQL database."
+
+    try:
+        cursor = conn.cursor()
+        query = "SELECT * FROM mac_addresses WHERE mac = %s"
+        cursor.execute(query, (mac_address,))
+        rows = cursor.fetchall()
+
+        entries_list = []
+        for row in rows:
+            entry_dict = {
+                'id': row[0],
+                'mac_address': row[1],
+                'time_stamps': row[2],
+            }
+            entries_list.append(entry_dict)
+
+        cursor.close()
+        conn.close()
+        return jsonify(entries=entries_list)
+
+    except psycopg2.Error as e:
+        return "Error executing SQL query: " + str(e)

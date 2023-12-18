@@ -9,6 +9,7 @@ from database import (
     add_graph_data_database,
     get_graph_data,
     get_graph_data_from_to,
+    get_entries_by_mac_address,
 )
 
 app = Flask(__name__)
@@ -88,6 +89,16 @@ def get_graph_data_from_to_route():
         return result
     else:
         abort(404, "Invalid data. Timestamps are required in the request")
+
+@app.route("/GetTimeStampsByMac", methods=['POST'])
+def get_timestamps_by_mac_route():
+    data = request.get_json()
+    mac = data.get('mac_address')
+    if mac:
+        result = get_entries_by_mac_address(mac)
+        return result
+    else:
+        abort(404, "Invalid data. MAC-Address is required in the request")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
