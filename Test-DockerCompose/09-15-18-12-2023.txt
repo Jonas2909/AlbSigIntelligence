@@ -1,0 +1,6 @@
+Interface: eth0, type: EN10MB, MAC: 00:15:5d:c0:c2:a8, IPv4: 172.21.22.9
+Starting arp-scan 1.10.0 with 4096 hosts (https://github.com/royhills/arp-scan)
+172.21.16.1	00:15:5d:b1:41:8f	Microsoft Corporation
+
+1 packets received by filter, 0 packets dropped by kernel
+Ending arp-scan 1.10.0: 4096 hosts scanned in 17.464 seconds (234.54 hosts/sec). 1 responded
