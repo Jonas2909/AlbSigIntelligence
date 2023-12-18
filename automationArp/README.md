@@ -22,5 +22,5 @@ sudo docker rm <ID>
 ## Steps that need to be done prior
 
 * start RestService
-* start Vizualisation
+* start Visualization
 
