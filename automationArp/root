@@ -1,3 +1,6 @@
+# test delete later:
+# */44 */23 * * * /bin/automationArp
+
 # every 15min after a lecture block starting mon - sun
 
 */15 */8 * * * /bin/automationArp

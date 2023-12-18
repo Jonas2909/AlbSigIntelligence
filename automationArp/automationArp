@@ -2,9 +2,9 @@
 
 # init file and perform arp-scan
 filename="$(date +%d_%m_%y_)ScanResults.txt"
-echo "\nScanning ..."
+echo "Scanning ..."
 arp-scan -l > "$filename" 
-echo "Done\n"
+echo "finished: $(date +%d.%m.%y) $(date +%H:%M)"
 
 # init Data for Request and Print results
 amount=$(cat "$filename" | egrep ^192 | egrep -v "Cisco" | egrep -v "Link" | wc -l)
@@ -16,5 +16,5 @@ curl -X POST http://0.0.0.0:5000/AddGraphData -H "Content-Type: application/json
 
 # delete save file
 rm "$filename"
-echo "\nFinished\n================="
+echo "Finished"
 
