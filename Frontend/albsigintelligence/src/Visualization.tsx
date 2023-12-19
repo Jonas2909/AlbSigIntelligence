@@ -269,7 +269,7 @@ export default function Visualization() {
   function formatTimestamp(utcTimestampInSeconds) {
     const timestampInMilliseconds = utcTimestampInSeconds * 1000;
     const date = new Date(timestampInMilliseconds);
-    const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} ${padZero(date.getHours())}:${padZero(date.getMinutes())}:${padZero(date.getSeconds())}`;
+    const formattedDate = `${date.getDate()}-${padZero(date.getMonth() + 1)}-${padZero(date.getFullYear())} ${padZero(date.getHours())}:${padZero(date.getMinutes())}:${padZero(date.getSeconds())}`;
     return formattedDate;
   }
   
