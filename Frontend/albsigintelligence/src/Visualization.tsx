@@ -36,10 +36,10 @@ export default function Visualization() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [measurements, setMeasurements] = useState([]);
+  const [timestamps, setTimestamps] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
   const [searchedString, setSearchedString] = useState('');
-
-  const timestamps = ["2023-01-01 10:00:00", "2023-01-01 12:30:00", "2023-01-02 15:45:00", "2023-01-02 15:45:00"];
+  const [searchValue, setSearchValue] = useState('');
 
 
   var today = new Date();
@@ -158,10 +158,52 @@ export default function Visualization() {
     }
   };
 
+  const fetchTimeStamps = async (mac) => {
+    console.log("Fetching URL:", "http://localhost:5000/GetTimeStampsByMac");
+
+    try {
+      const requestBody = {
+        mac_address: mac
+      };
+
+      const response = await fetch("http://localhost:5000/GetTimeStampsByMac", {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        mode: 'cors',
+        body: JSON.stringify(requestBody)
+      });
+
+      if (response.status === 200) {
+        const responseData = await response.json();
+
+        if (responseData && responseData.entries && Array.isArray(responseData.entries)) {
+          console.log(responseData.entries);
+          setTimestamps(responseData.entries);
+          setOpenDialog(true);
+          return;
+        } else {
+          setSnackbarMessage("Could not find any timestamps for the given mac-address");
+          setSnackbarOpen(true);
+          setOpenDialog(false);
+        }
+      } else if (response.status === 404) {
+        setSnackbarMessage("Could not read timestamps from the database.");
+        setSnackbarOpen(true);
+        setOpenDialog(false);
+      } else {
+        throw new Error(`Request failed with status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Error fetching timestamps:", error);
+      setOpenDialog(false);
+      throw error;
+    }
+  };
+
   const handleDateTypeChange = async (dateType: string) => {
     var date = new Date();
     console.log("Function handleDateTypeChange: date=" + date);
-  
+
     switch (dateType) {
       case "day":
         setDateType("day");
@@ -170,7 +212,7 @@ export default function Visualization() {
         console.log(new Date(startDate).toLocaleString());
         console.log(new Date(endDate).toLocaleString());
         break;
-  
+
       case "week":
         setDateType("week");
         let monday = getMonday(new Date());
@@ -179,7 +221,7 @@ export default function Visualization() {
         console.log(new Date(startDate).toLocaleString());
         console.log(new Date(endDate).toLocaleString());
         break;
-  
+
       case "month":
         setDateType("month");
         setStartDate(new Date(date.getFullYear(), date.getMonth(), 1).valueOf());
@@ -187,19 +229,19 @@ export default function Visualization() {
         console.log(new Date(startDate).toLocaleString());
         console.log(new Date(endDate).toLocaleString());
         break;
-  
+
       default:
         setDateType("");
         console.warn("Chart : handleDateTypeChange : wrong type!")
         setStartDate(0);
         break;
     }
-  
+
     setDateType(dateType);
-  
+
     const startTimestamp = Math.floor(startDate.valueOf() / 1000);
     const endTimestamp = Math.floor(endDate.valueOf() / 1000);
-  
+
     await fetchMeasurements(startTimestamp, endTimestamp);
   };
 
@@ -209,16 +251,31 @@ export default function Visualization() {
   };
 
   const handleSearch = () => {
-    // Add your search logic here
-    // For demonstration purposes, let's assume the search is successful, and we open the dialog
-    const searchString = "Searched String"; // Replace this with the actual searched string
+    if (searchValue.trim() === '') {
+      setSnackbarMessage("Input of MAC-address is empty!");
+      setSnackbarOpen(true);
+      return;
+    }
+    const searchString = searchValue;
     setSearchedString(searchString);
+    fetchTimeStamps(searchString);
     setOpenDialog(true);
   };
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
   };
+
+  function formatTimestamp(utcTimestampInSeconds) {
+    const timestampInMilliseconds = utcTimestampInSeconds * 1000;
+    const date = new Date(timestampInMilliseconds);
+    const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} ${padZero(date.getHours())}:${padZero(date.getMinutes())}:${padZero(date.getSeconds())}`;
+    return formattedDate;
+  }
+  
+  function padZero(number) {
+    return number.toString().padStart(2, '0');
+  }
 
   return (
     <div>
@@ -269,9 +326,9 @@ export default function Visualization() {
                     <TextField
                       variant="outlined"
                       label="From"
-                      value={moment(dateRange.from).format("YYYY-MM-DDTHH:mm") || ''}
+                      value={moment(dateRange.from).format("YYYY-MM-DD") || ''}
                       onChange={(e) => handleDateChange(new Date(e.target.value), 'from')}
-                      type="datetime-local"
+                      type="date"
 
                       disabled={promiseInProgress}
                     />
@@ -280,8 +337,8 @@ export default function Visualization() {
                     <TextField
                       variant="outlined"
                       label="To"
-                      type="datetime-local"
-                      value={moment(dateRange.to).format("YYYY-MM-DDTHH:mm") || ''}
+                      type="date"
+                      value={moment(dateRange.to).format("YYYY-MM-DD") || ''}
                       onChange={(e) => handleDateChange(new Date(e.target.value), 'to')}
                       disabled={promiseInProgress}
                     />
@@ -314,10 +371,18 @@ export default function Visualization() {
                       label="MAC address"
                       type="search"
                       variant="standard"
+                      value={searchValue}
+                      onChange={(e) => setSearchValue(e.target.value)}
                       InputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
-                            <Button className={classes.buttonSend} variant="contained" color="primary" onClick={handleSearch} style={{ marginBottom: '18px' }}>
+                            <Button
+                              variant="contained"
+                              color="primary"
+                              onClick={handleSearch}
+                              style={{ marginBottom: '18px' }}
+                              className={classes.buttonSend}
+                            >
                               <SearchIcon />
                             </Button>
                           </InputAdornment>
@@ -432,16 +497,8 @@ export default function Visualization() {
 
       <Copyright />
 
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000}
-      >
-        <MuiAlert
-          elevation={6}
-          variant="filled"
-          severity="error"
-          onClose={handleSnackbarClose}
-        >
+      <Snackbar open={snackbarOpen} onClose={handleSnackbarClose} autoHideDuration={2000}>
+        <MuiAlert elevation={6} variant="filled" severity="error">
           {snackbarMessage}
         </MuiAlert>
       </Snackbar>
@@ -451,14 +508,14 @@ export default function Visualization() {
         <DialogContent>
           <Table>
             <TableHead>
-              <TableRow style={{ backgroundColor: '#f0f0f0'}}>
+              <TableRow style={{ backgroundColor: '#f0f0f0' }}>
                 <TableCell align='center'>Device connection time stamps</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {timestamps.map((timestamp, index) => (
                 <TableRow key={index} style={{ backgroundColor: index % 2 === 1 ? '#f0f0f0' : 'white' }}>
-                  <TableCell align='center'>{timestamp}</TableCell>
+                  <TableCell align='center'>{formatTimestamp(timestamp.time_stamps)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
