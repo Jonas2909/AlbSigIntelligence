@@ -7,7 +7,7 @@ arp-scan -l > "$filename"
 echo "finished: $(date +%d.%m.%y) $(date +%H:%M)"
 
 # init Data for Request and Print results
-amount=$(cat "$filename" | egrep ^192 | egrep -v "Cisco" | egrep -v "Link" | wc -l)
+amount=$(cat "$filename" | egrep ^141 | egrep -v "Cisco" | egrep -v "Link" | wc -l)
 timeday=$(date +%s)
 echo "Results, counted: $amount, at $timeday ..."
 
