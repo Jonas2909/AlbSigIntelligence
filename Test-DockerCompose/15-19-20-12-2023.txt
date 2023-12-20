@@ -1,0 +1,10 @@
+Interface: wlp3s0, type: EN10MB, MAC: 64:bc:58:47:74:08, IPv4: 192.168.178.20
+Starting arp-scan 1.10.0 with 256 hosts (https://github.com/royhills/arp-scan)
+192.168.178.1	48:5d:35:89:27:51	AVM Audiovisuelles Marketing und Computersysteme GmbH
+192.168.178.21	02:bd:93:66:fd:72	(Unknown: locally administered)
+192.168.178.39	b8:13:32:46:bf:8a	AMPAK Technology,Inc.
+192.168.178.47	10:96:93:db:d3:5b	Amazon Technologies Inc.
+192.168.178.121	52:e3:4d:59:27:34	(Unknown: locally administered)
+
+5 packets received by filter, 0 packets dropped by kernel
+Ending arp-scan 1.10.0: 256 hosts scanned in 2.011 seconds (127.30 hosts/sec). 5 responded

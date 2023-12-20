@@ -60,16 +60,22 @@ def scan():
 	else:
 	    print(f"arp-scan failed with return code {process.returncode}. Exiting.")
 
-schedule.every().day.at("08:15").do(scan)
-schedule.every().day.at("10:00").do(scan)
-schedule.every().day.at("11:45").do(scan)
+	os.remove(output_file_name + ".txt")
+	print("everything fine ...\nawaiting next scan.")
+
+
+# Adjusting time for UTC+1 07o'clock = 08 o'clock (CET)
+schedule.every().day.at("07:15").do(scan)
+schedule.every().day.at("09:00").do(scan)
+schedule.every().day.at("10:45").do(scan)
+schedule.every().day.at("12:15").do(scan)
 schedule.every().day.at("13:15").do(scan)
-schedule.every().day.at("14:15").do(scan)
-schedule.every().day.at("16:00").do(scan)
-schedule.every().day.at("17:45").do(scan)
-schedule.every().day.at("19:15").do(scan)
-#testing delete later
-schedule.every().day.at("19:35").do(scan)
+schedule.every().day.at("15:00").do(scan)
+schedule.every().day.at("16:45").do(scan)
+schedule.every().day.at("18:15").do(scan)
+# testing delete later
+schedule.every().day.at("19:31").do(scan)
+schedule.every().day.at("19:32").do(scan)
 
 while True:
     schedule.run_pending()
