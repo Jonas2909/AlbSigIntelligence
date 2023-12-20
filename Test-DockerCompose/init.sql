@@ -6,10 +6,16 @@ CREATE TABLE IF NOT EXISTS user_credentials (
     password VARCHAR(255) NOT NULL
 );
 
+DO $$ 
+BEGIN 
+  RAISE NOTICE 'Database user_credentials created'; 
+END $$;
+
 CREATE TABLE IF NOT EXISTS measurements (
     id serial PRIMARY KEY,
     time_stamp bigint NOT NULL,
-    quantity int
+    quantity int,
+    mac_address macaddr
 
 );
 
