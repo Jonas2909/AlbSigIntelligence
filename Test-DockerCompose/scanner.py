@@ -68,6 +68,8 @@ schedule.every().day.at("14:15").do(scan)
 schedule.every().day.at("16:00").do(scan)
 schedule.every().day.at("17:45").do(scan)
 schedule.every().day.at("19:15").do(scan)
+#testing delete later
+schedule.every().day.at("19:35").do(scan)
 
 while True:
     schedule.run_pending()
