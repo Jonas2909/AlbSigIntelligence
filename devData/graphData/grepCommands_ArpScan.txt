@@ -1,0 +1,16 @@
+
+### Grep all found MAC
+cat arpScan-25_10_2023.txt | egrep -v Unknown | egrep ^141 | wc -l
+131
+
+### Grep all "Unknown locally administerd" -> probaply Android Tablets/Smartphones
+cat arpScan-25_10_2023.txt | egrep Unknown | wc -l
+232
+
+### Total
+cat arpScan-25_10_2023.txt | egrep ^141 | wc -l
+363
+
+### Total without Cisco and TP-Link devices
+cat arpScan-27_10_2023.txt | egrep ^141 | egrep -v "Cisco" | egrep -v "Link" | wc -l
+117
