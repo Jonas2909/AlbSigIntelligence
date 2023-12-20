@@ -3,14 +3,14 @@
 
 # every 15min after a lecture block starting mon - sun
 
-*/15 */8 * * * /bin/automationArp
-*/0 */10 * * * /bin/automationArp
-*/45 */11 * * * /bin/automationArp
-*/15 */13 * * * /bin/automationArp
-*/15 */14 * * * /bin/automationArp
-*/0 */16 * * * /bin/automationArp
-*/45 */17 * * * /bin/automationArp
-*/15 */19 * * * /bin/automationArp
+15 8 * * * /bin/automationArp
+0 10 * * * /bin/automationArp
+45 11 * * * /bin/automationArp
+15 13 * * * /bin/automationArp
+15 14 * * * /bin/automationArp
+0 16 * * * /bin/automationArp
+45 17 * * * /bin/automationArp
+15 19 * * * /bin/automationArp
 
 # * min (0 - 59)
 # * hour (0 - 23)
