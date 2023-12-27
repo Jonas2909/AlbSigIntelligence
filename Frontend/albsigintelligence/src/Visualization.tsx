@@ -119,6 +119,20 @@ export default function Visualization() {
   const fetchMeasurements = async (fromUtcInSeconds, toUtcInSeconds) => {
     console.log("Fetching URL:", "http://localhost:5000/GetGraphDataFromTo");
 
+    // Check if fromUtcInSeconds and toUtcInSeconds are the same
+    if (fromUtcInSeconds === toUtcInSeconds) {
+      console.log("From and To value equal");
+      // Set fromUtcInSeconds to the beginning of the current day
+      const startOfDay = new Date();
+      startOfDay.setHours(0, 0, 0, 0);
+      fromUtcInSeconds = Math.floor(startOfDay.getTime() / 1000);
+
+      // Set toUtcInSeconds to the end of the current day
+      const endOfDay = new Date();
+      endOfDay.setHours(23, 59, 59, 999);
+      toUtcInSeconds = Math.floor(endOfDay.getTime() / 1000);
+    }
+
     try {
       const requestBody = {
         time_stamp_from: fromUtcInSeconds,
@@ -208,7 +222,7 @@ export default function Visualization() {
       case "day":
         setDateType("day");
         setStartDate(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0).valueOf());
-        setEndDate(new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1, 0, 0, 0, 0).valueOf());
+        setEndDate(new Date(date.getFullYear(), date.getMonth(), date.getDate() + 0, 0, 0, 0, 0).valueOf());
         console.log(new Date(startDate).toLocaleString());
         console.log(new Date(endDate).toLocaleString());
         break;
@@ -272,7 +286,7 @@ export default function Visualization() {
     const formattedDate = `${date.getDate()}-${padZero(date.getMonth() + 1)}-${padZero(date.getFullYear())} ${padZero(date.getHours())}:${padZero(date.getMinutes())}:${padZero(date.getSeconds())}`;
     return formattedDate;
   }
-  
+
   function padZero(number) {
     return number.toString().padStart(2, '0');
   }
@@ -430,8 +444,7 @@ export default function Visualization() {
                 dataKey="time_stamp"
                 allowDataOverflow={true}
                 stroke={defaultTheme.palette.text.primary}
-                tickFormatter={(unixTime) => moment.unix(unixTime).format('DD.MM.YY HH:mm')
-                }
+                tickFormatter={(unixTime) => dateType === "day" ? moment.unix(unixTime).format('HH:mm') : dateType === "week" ? moment.unix(unixTime).format('ddd') : moment.unix(unixTime).format('DD.MM')}
                 domain={[startDate, endDate]}
               />
               <YAxis
@@ -504,7 +517,7 @@ export default function Visualization() {
       </Snackbar>
 
       <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>MAC-Address: {searchedString}</DialogTitle>
+        <DialogTitle>MAC-Address: {searchedString} <br></br> Subnet: 192.168.1.0/255</DialogTitle>
         <DialogContent>
           <Table>
             <TableHead>
