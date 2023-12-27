@@ -117,7 +117,7 @@ export default function Visualization() {
   };
 
   const fetchMeasurements = async (fromUtcInSeconds, toUtcInSeconds) => {
-    console.log("Fetching URL:", "http://localhost:5000/GetGraphDataFromTo");
+    console.log("Fetching URL:", "https://localhost:5000/GetGraphDataFromTo");
 
     // Check if fromUtcInSeconds and toUtcInSeconds are the same
     if (fromUtcInSeconds === toUtcInSeconds) {
@@ -139,7 +139,7 @@ export default function Visualization() {
         time_stamp_to: toUtcInSeconds
       };
 
-      const response = await fetch("http://localhost:5000/GetGraphDataFromTo", {
+      const response = await fetch("https://localhost:5000/GetGraphDataFromTo", {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         mode: 'cors',
@@ -173,14 +173,14 @@ export default function Visualization() {
   };
 
   const fetchTimeStamps = async (mac) => {
-    console.log("Fetching URL:", "http://localhost:5000/GetTimeStampsByMac");
+    console.log("Fetching URL:", "https://localhost:5000/GetTimeStampsByMac");
 
     try {
       const requestBody = {
         mac_address: mac
       };
 
-      const response = await fetch("http://localhost:5000/GetTimeStampsByMac", {
+      const response = await fetch("https://localhost:5000/GetTimeStampsByMac", {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         mode: 'cors',
