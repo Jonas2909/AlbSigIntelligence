@@ -80,7 +80,7 @@ schedule.every().day.at("17:45").do(scan)
 schedule.every().day.at("19:15").do(scan)
 
 # scheduled task for development
-schedule.every().day.at("15:01").do(scan)
+schedule.every().day.at("15:31").do(scan)
 
 
 while True:

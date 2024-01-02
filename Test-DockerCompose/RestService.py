@@ -8,6 +8,7 @@ from database import (
     check_if_user_exists_by_username,
     add_graph_data_database,
     get_graph_data,
+    get_hashed_mac_addresses,
     get_graph_data_from_to,
     get_entries_by_mac_address,
 )
@@ -83,6 +84,10 @@ def add_graph_data():
 @app.route("/GetGraphData", methods=['GET'])
 def get_graph_data_route():
     return get_graph_data()
+
+@app.route("/GetHashedMACAddresses", methods=['GET'])
+def get_hashed_mac_addresses_route():
+    return get_hashed_mac_addresses()
 
 @app.route("/GetGraphDataFromTo", methods=['POST'])
 def get_graph_data_from_to_route():

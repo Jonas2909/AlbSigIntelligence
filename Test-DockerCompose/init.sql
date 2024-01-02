@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS measurements (
 
 CREATE TABLE IF NOT EXISTS mac_addresses (
     id serial PRIMARY KEY,
-    hashed_mac_address VARCHAR(64) NOT NULL, -- length of 64 because of SHA256
-    time_stamp bigint NOT NULL
+    time_stamp bigint NOT NULL,
+    hashed_mac_address VARCHAR(64) NOT NULL -- length of 64 because of SHA256
 );
 
 INSERT INTO user_credentials (firstname,lastname, username, password) VALUES ('samplefirstname', 'samplelastname', 'sampleuser', 'samplepassword');
@@ -29,8 +29,8 @@ INSERT INTO user_credentials (firstname,lastname, username, password) VALUES ('j
 INSERT INTO measurements (time_stamp, quantity) VALUES (1701174250, 25);
 INSERT INTO measurements (time_stamp, quantity) VALUES (1701176250, 15);
 
-INSERT INTO mac_addresses (hashed_mac_address, time_stamp) VALUES ('e140ef2f06fc2fac86f1e446149b890f6b762da78b7b3109df6cc49c9b29dec1', 1702915589);
-INSERT INTO mac_addresses (hashed_mac_address, time_stamp) VALUES ('a56b61402f0913c69785a9df529f78658dcae766f619f3129b07bb6c5861578d',  1703174789);
+INSERT INTO mac_addresses (time_stamp, hashed_mac_address) VALUES (1702915589, 'e140ef2f06fc2fac86f1e446149b890f6b762da78b7b3109df6cc49c9b29dec1');
+INSERT INTO mac_addresses (time_stamp, hashed_mac_address) VALUES (1703174789, 'a56b61402f0913c69785a9df529f78658dcae766f619f3129b07bb6c5861578d');
 
 GRANT ALL ON user_credentials TO postgres;
 GRANT ALL ON measurements TO postgres;
