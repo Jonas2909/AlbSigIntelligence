@@ -42,6 +42,8 @@ def scan():
 		except FileNotFoundError:
 		    print(f"Error: File '{file_path}' not found.")
 
+		# delete first mac address which is MAC of scan header in .txt file
+		mac_addresses=mac_addresses[1:]
 		# get amount of unique MACs
 		amount = len(mac_addresses)
 
@@ -60,7 +62,7 @@ def scan():
 	else:
 	    print(f"arp-scan failed with return code {process.returncode}. Exiting.")
 
-schedule.every().day.at("08:15").do(scan)
+schedule.every().day.at("19:05").do(scan)
 schedule.every().day.at("10:00").do(scan)
 schedule.every().day.at("11:45").do(scan)
 schedule.every().day.at("13:15").do(scan)
