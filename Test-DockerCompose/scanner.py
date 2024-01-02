@@ -5,6 +5,7 @@ import time
 import schedule
 import requests
 import subprocess
+import hashlib
 
 
 def scan():
@@ -58,11 +59,18 @@ def scan():
 			print(response)
 			print(response.text)
 
+		# send MAC Hashes and timestamp
+		for MAC in mac_addresses:
+			hashed_mac_address = hashlib.sha256(MAC.encode()).hexdigest()
+			data={ 'hashed_mac_address': hashed_mac_address, 'time_stamp': current_unix_time,}
+			response = requests.post(url, json=data)
+
 	# if arp-scan failed...
 	else:
 	    print(f"arp-scan failed with return code {process.returncode}. Exiting.")
 
-schedule.every().day.at("19:05").do(scan)
+# Time is UTC, needs to be changed to UTC+1
+schedule.every().day.at("08:15").do(scan)
 schedule.every().day.at("10:00").do(scan)
 schedule.every().day.at("11:45").do(scan)
 schedule.every().day.at("13:15").do(scan)
@@ -70,6 +78,10 @@ schedule.every().day.at("14:15").do(scan)
 schedule.every().day.at("16:00").do(scan)
 schedule.every().day.at("17:45").do(scan)
 schedule.every().day.at("19:15").do(scan)
+
+# scheduled task for development
+schedule.every().day.at("15:01").do(scan)
+
 
 while True:
     schedule.run_pending()
