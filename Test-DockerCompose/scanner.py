@@ -7,7 +7,7 @@ import requests
 import subprocess
 
 def scan():
-	batcmd= "automationArp"
+	batcmd= "./automationArp"
     	result = subprocess.check_output(batcmd, shell=True, text=True)
 	return
 

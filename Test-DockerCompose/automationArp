@@ -12,7 +12,7 @@ timeday=$(date +%s)
 echo "Results, counted: $amount, at $timeday ..."
 
 # build and send Request
-curl -X POST http://0.0.0.0:5000/AddGraphData -H "Content-Type: application/json" -d '{"quantity": '"$amount"', "time_stamp": '"$timeday"'}'
+curl -X -k POST http://0.0.0.0:5000/AddGraphData -H "Content-Type: application/json" -d '{"quantity": '"$amount"', "time_stamp": '"$timeday"'}'
 
 # delete save file
 rm "$filename"
