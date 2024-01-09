@@ -1,0 +1,38 @@
+Starting local_db ... 
+[1A[2KStarting local_db ... [32mdone[0m[1BStarting flask-rest-api ... 
+[1A[2KStarting flask-rest-api ... [32mdone[0m[1BStarting scanner        ... 
+[1A[2KStarting scanner        ... [32mdone[0m[1BAttaching to local_db, flask-rest-api, scanner
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 2024-01-09 13:02:19.274 UTC [1] LOG:  starting PostgreSQL 16.1 (Debian 16.1-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mlocal_db   |[0m 2024-01-09 13:02:19.287 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mlocal_db   |[0m 2024-01-09 13:02:19.287 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mlocal_db   |[0m 2024-01-09 13:02:19.386 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mlocal_db   |[0m 2024-01-09 13:02:19.471 UTC [29] LOG:  database system was interrupted; last known up at 2024-01-07 23:18:34 UTC
+[33mlocal_db   |[0m 2024-01-09 13:02:19.588 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress
+[33mlocal_db   |[0m 2024-01-09 13:02:19.608 UTC [29] LOG:  redo starts at 0/1943EF8
+[33mlocal_db   |[0m 2024-01-09 13:02:19.609 UTC [29] LOG:  invalid record length at 0/1943FE0: expected at least 24, got 0
+[33mlocal_db   |[0m 2024-01-09 13:02:19.609 UTC [29] LOG:  redo done at 0/1943FA8 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+[33mlocal_db   |[0m 2024-01-09 13:02:19.632 UTC [27] LOG:  checkpoint starting: end-of-recovery immediate wait
+[33mlocal_db   |[0m 2024-01-09 13:02:19.688 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.015 s, sync=0.005 s, total=0.063 s; sync files=2, longest=0.003 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/1943FE0, redo lsn=0/1943FE0
+[33mlocal_db   |[0m 2024-01-09 13:02:19.835 UTC [1] LOG:  database system is ready to accept connections
+[36mflask-rest-api |[0m  * Serving Flask app 'RestService' (lazy loading)
+[36mflask-rest-api |[0m  * Environment: production
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m    Use a production WSGI server instead.
+[36mflask-rest-api |[0m  * Debug mode: on
+[36mflask-rest-api |[0m WARNING:werkzeug: * Running on all addresses.
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m INFO:werkzeug: * Running on http://172.18.0.3:5000/ (Press CTRL+C to quit)
+[36mflask-rest-api |[0m INFO:werkzeug: * Restarting with stat
+[36mflask-rest-api |[0m WARNING:werkzeug: * Debugger is active!
+[36mflask-rest-api |[0m INFO:werkzeug: * Debugger PIN: 109-409-892
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 13:03:37] "[33mGET / HTTP/1.1[0m" 404 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 13:03:37] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 13:03:44] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [09/Jan/2024 13:15:09] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-09 13:17:19.891 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-09 13:17:20.238 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.313 s, sync=0.012 s, total=0.348 s; sync files=4, longest=0.010 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/1944578, redo lsn=0/1944540
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 13:20:06] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 13:28:43] "GET /GetGraphData HTTP/1.1" 200 -

@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "/usr/bin/docker-compose", line 6, in <module>
+    from pkg_resources import load_entry_point
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3243, in <module>
+    def _initialize_master_working_set():
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3226, in _call_aside
+    f(*args, **kwargs)
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 3255, in _initialize_master_working_set
+    working_set = WorkingSet._build_master()
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 559, in _build_master
+    ws = cls()
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 552, in __init__
+    self.add_entry(entry)
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 608, in add_entry
+    for dist in find_distributions(entry, True):
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2063, in find_on_path
+    for dist in factory(fullpath):
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2128, in distributions_from_metadata
+    yield Distribution.from_location(
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2588, in from_location
+    return cls(
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2989, in _reload_version
+    md_version = self._get_version()
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2770, in _get_version
+    version = _version_from_file(lines)
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2554, in _version_from_file
+    line = next(iter(version_lines), '')
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 2765, in _get_metadata
+    for line in self.get_metadata_lines(name):
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 1906, in get_metadata_lines
+    return yield_lines(self.get_metadata(name))
+  File "/usr/lib/python3/dist-packages/pkg_resources/__init__.py", line 1894, in get_metadata
+    metadata = f.read()
+  File "/usr/lib/python3.9/codecs.py", line 319, in decode
+    def decode(self, input, final=False):
+KeyboardInterrupt
+Starting local_db ... 
+[1A[2KStarting local_db ... [32mdone[0m[1BStarting flask-rest-api ... 
+[1A[2KStarting flask-rest-api ... [32mdone[0m[1BStarting scanner        ... 
+[1A[2KStarting scanner        ... [32mdone[0m[1BAttaching to local_db, flask-rest-api, scanner
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 2024-01-07 23:13:34.204 UTC [1] LOG:  starting PostgreSQL 16.1 (Debian 16.1-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mlocal_db   |[0m 2024-01-07 23:13:34.207 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mlocal_db   |[0m 2024-01-07 23:13:34.207 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mlocal_db   |[0m 2024-01-07 23:13:34.228 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mlocal_db   |[0m 2024-01-07 23:13:34.267 UTC [30] LOG:  database system was shut down at 2024-01-07 22:47:46 UTC
+[33mlocal_db   |[0m 2024-01-07 23:13:34.428 UTC [1] LOG:  database system is ready to accept connections
+[36mflask-rest-api |[0m  * Serving Flask app 'RestService' (lazy loading)
+[36mflask-rest-api |[0m  * Environment: production
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m    Use a production WSGI server instead.
+[36mflask-rest-api |[0m  * Debug mode: on
+[36mflask-rest-api |[0m WARNING:werkzeug: * Running on all addresses.
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m INFO:werkzeug: * Running on http://172.18.0.3:5000/ (Press CTRL+C to quit)
+[36mflask-rest-api |[0m INFO:werkzeug: * Restarting with stat
+[36mflask-rest-api |[0m WARNING:werkzeug: * Debugger is active!
+[36mflask-rest-api |[0m INFO:werkzeug: * Debugger PIN: 267-539-600
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.59.221 - - [07/Jan/2024 23:16:00] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.59.221 - - [07/Jan/2024 23:16:03] "GET /GetGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-07 23:18:34.286 UTC [28] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-07 23:18:34.673 UTC [28] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.104 s, sync=0.058 s, total=0.388 s; sync files=2, longest=0.031 s, average=0.029 s; distance=0 kB, estimate=0 kB; lsn=0/1943F30, redo lsn=0/1943EF8

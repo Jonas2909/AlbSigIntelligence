@@ -1,0 +1,147 @@
+local_db is up-to-date
+flask-rest-api is up-to-date
+scanner is up-to-date
+Attaching to local_db, flask-rest-api, scanner
+[36mflask-rest-api |[0m  * Serving Flask app 'RestService' (lazy loading)
+[36mflask-rest-api |[0m  * Environment: production
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m    Use a production WSGI server instead.
+[36mflask-rest-api |[0m  * Debug mode: on
+[36mflask-rest-api |[0m WARNING:werkzeug: * Running on all addresses.
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m INFO:werkzeug: * Running on http://172.18.0.3:5000/ (Press CTRL+C to quit)
+[36mflask-rest-api |[0m INFO:werkzeug: * Restarting with stat
+[36mflask-rest-api |[0m WARNING:werkzeug: * Debugger is active!
+[36mflask-rest-api |[0m INFO:werkzeug: * Debugger PIN: 152-534-680
+[36mflask-rest-api |[0m  * Serving Flask app 'RestService' (lazy loading)
+[36mflask-rest-api |[0m  * Environment: production
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m    Use a production WSGI server instead.
+[36mflask-rest-api |[0m  * Debug mode: on
+[36mflask-rest-api |[0m WARNING:werkzeug: * Running on all addresses.
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m INFO:werkzeug: * Running on http://172.18.0.3:5000/ (Press CTRL+C to quit)
+[36mflask-rest-api |[0m INFO:werkzeug: * Restarting with stat
+[36mflask-rest-api |[0m WARNING:werkzeug: * Debugger is active!
+[36mflask-rest-api |[0m INFO:werkzeug: * Debugger PIN: 152-534-680
+[33mlocal_db   |[0m The files belonging to this database system will be owned by user "postgres".
+[33mlocal_db   |[0m This user must also own the server process.
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m The database cluster will be initialized with locale "en_US.utf8".
+[33mlocal_db   |[0m The default database encoding has accordingly been set to "UTF8".
+[33mlocal_db   |[0m The default text search configuration will be set to "english".
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m Data page checksums are disabled.
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m fixing permissions on existing directory /var/lib/postgresql/data ... ok
+[33mlocal_db   |[0m creating subdirectories ... ok
+[33mlocal_db   |[0m selecting dynamic shared memory implementation ... posix
+[33mlocal_db   |[0m selecting default max_connections ... 100
+[33mlocal_db   |[0m selecting default shared_buffers ... 128MB
+[33mlocal_db   |[0m selecting default time zone ... Etc/UTC
+[33mlocal_db   |[0m creating configuration files ... ok
+[33mlocal_db   |[0m running bootstrap script ... ok
+[33mlocal_db   |[0m performing post-bootstrap initialization ... ok
+[33mlocal_db   |[0m syncing data to disk ... ok
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m Success. You can now start the database server using:
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m     pg_ctl -D /var/lib/postgresql/data -l logfile start
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m initdb: warning: enabling "trust" authentication for local connections
+[33mlocal_db   |[0m initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+[33mlocal_db   |[0m waiting for server to start....2023-12-20 22:11:53.773 UTC [48] LOG:  starting PostgreSQL 16.1 (Debian 16.1-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mlocal_db   |[0m 2023-12-20 22:11:53.780 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mlocal_db   |[0m 2023-12-20 22:11:53.806 UTC [51] LOG:  database system was shut down at 2023-12-20 22:11:51 UTC
+[33mlocal_db   |[0m 2023-12-20 22:11:53.833 UTC [48] LOG:  database system is ready to accept connections
+[33mlocal_db   |[0m  done
+[33mlocal_db   |[0m server started
+[33mlocal_db   |[0m CREATE DATABASE
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m /usr/local/bin/docker-entrypoint.sh: running /docker-entrypoint-initdb.d/init.sql
+[33mlocal_db   |[0m CREATE TABLE
+[33mlocal_db   |[0m psql:/docker-entrypoint-initdb.d/init.sql:12: NOTICE:  Database user_credentials created
+[33mlocal_db   |[0m DO
+[33mlocal_db   |[0m CREATE TABLE
+[33mlocal_db   |[0m CREATE TABLE
+[33mlocal_db   |[0m INSERT 0 1
+[33mlocal_db   |[0m INSERT 0 1
+[33mlocal_db   |[0m INSERT 0 1
+[33mlocal_db   |[0m INSERT 0 1
+[33mlocal_db   |[0m INSERT 0 1
+[33mlocal_db   |[0m INSERT 0 1
+[33mlocal_db   |[0m GRANT
+[33mlocal_db   |[0m GRANT
+[33mlocal_db   |[0m GRANT
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 2023-12-20 22:11:55.301 UTC [48] LOG:  received fast shutdown request
+[33mlocal_db   |[0m waiting for server to shut down....2023-12-20 22:11:55.308 UTC [48] LOG:  aborting any active transactions
+[33mlocal_db   |[0m 2023-12-20 22:11:55.320 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+[33mlocal_db   |[0m 2023-12-20 22:11:55.322 UTC [49] LOG:  shutting down
+[33mlocal_db   |[0m 2023-12-20 22:11:55.328 UTC [49] LOG:  checkpoint starting: shutdown immediate
+[33mlocal_db   |[0m 2023-12-20 22:11:55.811 UTC [49] LOG:  checkpoint complete: wrote 946 buffers (5.8%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.097 s, sync=0.317 s, total=0.489 s; sync files=311, longest=0.300 s, average=0.002 s; distance=4311 kB, estimate=4311 kB; lsn=0/1920768, redo lsn=0/1920768
+[33mlocal_db   |[0m 2023-12-20 22:11:55.854 UTC [48] LOG:  database system is shut down
+[33mlocal_db   |[0m  done
+[33mlocal_db   |[0m server stopped
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m PostgreSQL init process complete; ready for start up.
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 2023-12-20 22:11:56.064 UTC [1] LOG:  starting PostgreSQL 16.1 (Debian 16.1-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mlocal_db   |[0m 2023-12-20 22:11:56.067 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mlocal_db   |[0m 2023-12-20 22:11:56.067 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mlocal_db   |[0m 2023-12-20 22:11:56.079 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mlocal_db   |[0m 2023-12-20 22:11:56.102 UTC [66] LOG:  database system was shut down at 2023-12-20 22:11:55 UTC
+[33mlocal_db   |[0m 2023-12-20 22:11:56.131 UTC [1] LOG:  database system is ready to accept connections
+[33mlocal_db   |[0m 2023-12-20 22:12:19.385 UTC [1] LOG:  received fast shutdown request
+[33mlocal_db   |[0m 2023-12-20 22:12:19.393 UTC [1] LOG:  aborting any active transactions
+[33mlocal_db   |[0m 2023-12-20 22:12:19.411 UTC [1] LOG:  background worker "logical replication launcher" (PID 69) exited with exit code 1
+[33mlocal_db   |[0m 2023-12-20 22:12:19.411 UTC [64] LOG:  shutting down
+[33mlocal_db   |[0m 2023-12-20 22:12:19.417 UTC [64] LOG:  checkpoint starting: shutdown immediate
+[33mlocal_db   |[0m 2023-12-20 22:12:19.477 UTC [64] LOG:  checkpoint complete: wrote 29 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.014 s, sync=0.027 s, total=0.066 s; sync files=10, longest=0.024 s, average=0.003 s; distance=132 kB, estimate=132 kB; lsn=0/19418C8, redo lsn=0/19418C8
+[33mlocal_db   |[0m 2023-12-20 22:12:19.504 UTC [1] LOG:  database system is shut down
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 2023-12-20 22:13:34.972 UTC [1] LOG:  starting PostgreSQL 16.1 (Debian 16.1-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mlocal_db   |[0m 2023-12-20 22:13:34.973 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mlocal_db   |[0m 2023-12-20 22:13:34.973 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mlocal_db   |[0m 2023-12-20 22:13:34.990 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mlocal_db   |[0m 2023-12-20 22:13:35.066 UTC [31] LOG:  database system was shut down at 2023-12-20 22:12:19 UTC
+[33mlocal_db   |[0m 2023-12-20 22:13:35.095 UTC [1] LOG:  database system is ready to accept connections
+[33mlocal_db   |[0m 2023-12-20 22:18:35.167 UTC [29] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2023-12-20 22:18:40.934 UTC [29] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.302 s, sync=0.028 s, total=5.769 s; sync files=3, longest=0.024 s, average=0.010 s; distance=0 kB, estimate=0 kB; lsn=0/19419B0, redo lsn=0/1941978
+[33mlocal_db   |[0m 2023-12-20 22:28:49.636 UTC [33] WARNING:  autovacuum worker took too long to start; canceled
+[33mlocal_db   |[0m 2023-12-20 22:29:25.586 UTC [76] WARNING:  autovacuum worker started without a worker entry
+[33mlocal_db   |[0m 2023-12-20 22:37:57.519 UTC [33] WARNING:  autovacuum worker took too long to start; canceled
+[33mlocal_db   |[0m 2023-12-20 22:38:27.613 UTC [96] WARNING:  autovacuum worker started without a worker entry
+[33mlocal_db   |[0m 2023-12-20 22:40:16.230 UTC [33] WARNING:  autovacuum worker took too long to start; canceled
+[33mlocal_db   |[0m 2023-12-20 22:44:27.506 UTC [33] WARNING:  autovacuum worker took too long to start; canceled
+[33mlocal_db   |[0m 2023-12-20 22:45:37.769 UTC [97] WARNING:  autovacuum worker started without a worker entry
+[33mlocal_db   |[0m 2023-12-20 22:47:38.328 UTC [101] WARNING:  autovacuum worker started without a worker entry
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [21/Dec/2023 07:15:11] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2023-12-21 07:18:47.752 UTC [29] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2023-12-21 07:18:48.168 UTC [29] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.316 s, sync=0.011 s, total=0.416 s; sync files=4, longest=0.009 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/1941CF0, redo lsn=0/1941CB8
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [21/Dec/2023 09:00:09] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2023-12-21 09:03:48.345 UTC [29] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2023-12-21 09:03:48.691 UTC [29] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.310 s, sync=0.011 s, total=0.347 s; sync files=4, longest=0.009 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/1942088, redo lsn=0/1942050
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [21/Dec/2023 10:45:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2023-12-21 10:48:50.202 UTC [29] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2023-12-21 10:48:50.605 UTC [29] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.312 s, sync=0.011 s, total=0.403 s; sync files=4, longest=0.008 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/1942458, redo lsn=0/1942420
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [21/Dec/2023 12:15:09] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2023-12-21 12:18:51.759 UTC [29] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2023-12-21 12:18:52.106 UTC [29] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.312 s, sync=0.011 s, total=0.347 s; sync files=4, longest=0.009 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/1942868, redo lsn=0/1942830
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [21/Dec/2023 13:15:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2023-12-21 13:18:51.987 UTC [29] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2023-12-21 13:18:52.331 UTC [29] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.312 s, sync=0.010 s, total=0.345 s; sync files=4, longest=0.008 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/1942CC8, redo lsn=0/1942C90
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [21/Dec/2023 15:00:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2023-12-21 15:03:52.848 UTC [29] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2023-12-21 15:03:53.191 UTC [29] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.312 s, sync=0.009 s, total=0.344 s; sync files=4, longest=0.007 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/1943168, redo lsn=0/1943130
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [21/Dec/2023 16:45:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2023-12-21 16:48:53.441 UTC [29] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2023-12-21 16:48:53.787 UTC [29] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.311 s, sync=0.011 s, total=0.346 s; sync files=4, longest=0.009 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/1943658, redo lsn=0/1943620
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [21/Dec/2023 18:15:09] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2023-12-21 18:18:54.955 UTC [29] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2023-12-21 18:18:55.299 UTC [29] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.312 s, sync=0.011 s, total=0.344 s; sync files=4, longest=0.009 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/1943B88, redo lsn=0/1943B50
