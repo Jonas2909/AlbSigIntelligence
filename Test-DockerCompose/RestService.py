@@ -101,4 +101,4 @@ def get_timestamps_by_mac_route():
         abort(404, "Invalid data. MAC-Address is required in the request")
 
 if __name__ == '__main__':
-    app.run(ssl_context=('Certificates/cert.pem', 'Certificates/key.pem'), host='0.0.0.0', port=5000, debug=True)
+    app.run(ssl_context=('Certificates/cert.pem', 'Certificates/key.pem'), host='0.0.0.0', port=5000,  debug=True)
