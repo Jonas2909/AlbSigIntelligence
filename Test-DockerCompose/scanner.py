@@ -5,6 +5,7 @@ import time
 import schedule
 import requests
 import subprocess
+import hashlib
 
 
 def scan():
@@ -41,7 +42,9 @@ def scan():
 			
 		except FileNotFoundError:
 		    print(f"Error: File '{file_path}' not found.")
-
+    
+        # delete first mac address which is MAC of scan header in .txt file
+		mac_addresses=mac_addresses[1:]
 		# get amount of unique MACs
 		amount = len(mac_addresses)
 
@@ -55,12 +58,27 @@ def scan():
 		if response.status_code != 200:
 			print(response)
 			print(response.text)
+			
+		# send MAC Hashes and timestamp
+		for MAC in mac_addresses:
+			hashed_mac_address = hashlib.sha256(MAC.encode()).hexdigest()
+			data={ 'hashed_mac_address': hashed_mac_address, 'time_stamp': current_unix_time,}
+			response = requests.post(url, json=data)
+
+		# Delete the file after processing and sending data
+		try:
+			os.remove(file_path)
+			print(f"File '{file_path}' deleted successfully.")
+		except FileNotFoundError:
+			print(f"Error: File '{file_path}' not found.")
+		except Exception as e:
+			print(f"Error deleting file '{file_path}': {e}")
 
 	# if arp-scan failed...
 	else:
 	    print(f"arp-scan failed with return code {process.returncode}. Exiting.")
 
-
+# Time is configured to UTC
 schedule.every().day.at("07:15").do(scan)
 schedule.every().day.at("09:00").do(scan)
 schedule.every().day.at("10:45").do(scan)
@@ -69,6 +87,9 @@ schedule.every().day.at("13:15").do(scan)
 schedule.every().day.at("15:00").do(scan)
 schedule.every().day.at("16:45").do(scan)
 schedule.every().day.at("18:15").do(scan)
+
+# scheduled task for development
+schedule.every().day.at("16:31").do(scan)
 
 while True:
     schedule.run_pending()

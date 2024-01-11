@@ -158,7 +158,7 @@ def delete_user_by_username(username):
     except psycopg2.Error as e:
         return "Error deleting user from the database: " + str(e)
         
-def add_graph_data_database(time_stamp, quantity):
+def add_graph_data_database(time_stamp, value, is_quantity=True):
     conn = connect_to_database()
 
     if conn is None:
@@ -166,7 +166,12 @@ def add_graph_data_database(time_stamp, quantity):
 
     try:
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO measurements (time_stamp, quantity) VALUES (%s, %s)", (time_stamp, quantity))
+        if is_quantity:
+            # Treat the value as quantity
+            cursor.execute("INSERT INTO measurements (time_stamp, quantity) VALUES (%s, %s)", (time_stamp, value))
+        else:
+            # Treat the value as mac_address
+            cursor.execute("INSERT INTO mac_addresses (time_stamp, hashed_mac_address) VALUES (%s, %s)", (time_stamp, value))
         conn.commit()
         cursor.close()
         conn.close()
@@ -198,6 +203,35 @@ def get_graph_data():
 
     except psycopg2.Error as e:
         return "Error executing SQL query: " + str(e)
+
+
+def get_hashed_mac_addresses():
+    conn = connect_to_database()
+
+    if conn is None:
+        return "Error connecting to the PostgreSQL database."
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM mac_addresses")
+        rows = cursor.fetchall()
+        data_list = []
+
+        for row in rows:
+            data_dict = {
+                'id': row[0],
+                'time_stamp': row[1],
+                'hashed_mac_address': row[2]
+            }
+            data_list.append(data_dict)
+
+        cursor.close()
+        conn.close()
+        return jsonify(data=data_list)
+
+    except psycopg2.Error as e:
+        return "Error executing SQL query: " + str(e)
+
 
 def get_graph_data_from_to(timestamp_from, timestamp_to):
     conn = connect_to_database()
