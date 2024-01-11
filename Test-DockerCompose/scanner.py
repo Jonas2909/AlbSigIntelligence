@@ -25,7 +25,7 @@ def scan():
 	if process.returncode == 0:	
 		print("arp-scan ran successfully.")
 	    
-		url = 'http://0.0.0.0:5000/AddGraphData'
+		url = 'https://0.0.0.0:5000/AddGraphData'
 		
 		mac_address_pattern = re.compile(r'(?:[0-9a-fA-F]:?){12}')
 		
@@ -51,7 +51,7 @@ def scan():
 		data={ 'time_stamp': current_unix_time,'quantity': amount}        
 
 		# send timestamp with amount
-		response = requests.post(url, json=data)
+		response = requests.post(url, json=data, verify=False)
 		if response.status_code != 200:
 			print(response)
 			print(response.text)
@@ -60,14 +60,15 @@ def scan():
 	else:
 	    print(f"arp-scan failed with return code {process.returncode}. Exiting.")
 
-schedule.every().day.at("08:15").do(scan)
-schedule.every().day.at("10:00").do(scan)
-schedule.every().day.at("11:45").do(scan)
+
+schedule.every().day.at("07:15").do(scan)
+schedule.every().day.at("09:00").do(scan)
+schedule.every().day.at("10:45").do(scan)
+schedule.every().day.at("12:15").do(scan)
 schedule.every().day.at("13:15").do(scan)
-schedule.every().day.at("14:15").do(scan)
-schedule.every().day.at("16:00").do(scan)
-schedule.every().day.at("17:45").do(scan)
-schedule.every().day.at("19:15").do(scan)
+schedule.every().day.at("15:00").do(scan)
+schedule.every().day.at("16:45").do(scan)
+schedule.every().day.at("18:15").do(scan)
 
 while True:
     schedule.run_pending()
