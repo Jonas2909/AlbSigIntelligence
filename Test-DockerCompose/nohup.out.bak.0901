@@ -1,0 +1,129 @@
+Starting local_db ... 
+[1A[2KStarting local_db ... [32mdone[0m[1BStarting flask-rest-api ... 
+[1A[2KStarting flask-rest-api ... [32mdone[0m[1BStarting scanner        ... 
+[1A[2KStarting scanner        ... [32mdone[0m[1BAttaching to local_db, flask-rest-api, scanner
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 2024-01-09 14:55:46.778 UTC [1] LOG:  starting PostgreSQL 16.1 (Debian 16.1-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mlocal_db   |[0m 2024-01-09 14:55:46.782 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mlocal_db   |[0m 2024-01-09 14:55:46.782 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mlocal_db   |[0m 2024-01-09 14:55:46.795 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mlocal_db   |[0m 2024-01-09 14:55:46.820 UTC [30] LOG:  database system was shut down at 2024-01-09 14:55:20 UTC
+[33mlocal_db   |[0m 2024-01-09 14:55:46.855 UTC [1] LOG:  database system is ready to accept connections
+[36mflask-rest-api |[0m  * Serving Flask app 'RestService' (lazy loading)
+[36mflask-rest-api |[0m  * Environment: production
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m    Use a production WSGI server instead.
+[36mflask-rest-api |[0m  * Debug mode: on
+[36mflask-rest-api |[0m WARNING:werkzeug: * Running on all addresses.
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m INFO:werkzeug: * Running on https://172.18.0.3:5000/ (Press CTRL+C to quit)
+[36mflask-rest-api |[0m INFO:werkzeug: * Restarting with stat
+[36mflask-rest-api |[0m WARNING:werkzeug: * Debugger is active!
+[36mflask-rest-api |[0m INFO:werkzeug: * Debugger PIN: 109-409-892
+[33mlocal_db   |[0m 2024-01-09 15:00:46.893 UTC [28] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-09 15:00:46.944 UTC [28] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.017 s, sync=0.005 s, total=0.051 s; sync files=2, longest=0.003 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/1944AF0, redo lsn=0/1944AB8
+[32mscanner    |[0m Traceback (most recent call last):
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/connectionpool.py", line 467, in _make_request
+[32mscanner    |[0m arp-scan ran successfully.
+[32mscanner    |[0m     self._validate_conn(conn)
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1096, in _validate_conn
+[32mscanner    |[0m     conn.connect()
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/connection.py", line 642, in connect
+[32mscanner    |[0m     sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+[32mscanner    |[0m                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/connection.py", line 782, in _ssl_wrap_socket_and_match_hostname
+[32mscanner    |[0m     ssl_sock = ssl_wrap_socket(
+[32mscanner    |[0m                ^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/util/ssl_.py", line 470, in ssl_wrap_socket
+[32mscanner    |[0m     ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+[32mscanner    |[0m                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/util/ssl_.py", line 514, in _ssl_wrap_socket_impl
+[32mscanner    |[0m     return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+[32mscanner    |[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/ssl.py", line 517, in wrap_socket
+[32mscanner    |[0m     return self.sslsocket_class._create(
+[32mscanner    |[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/ssl.py", line 1108, in _create
+[32mscanner    |[0m     self.do_handshake()
+[32mscanner    |[0m   File "/usr/lib/python3.11/ssl.py", line 1379, in do_handshake
+[32mscanner    |[0m     self._sslobj.do_handshake()
+[32mscanner    |[0m ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)
+[32mscanner    |[0m 
+[32mscanner    |[0m During handling of the above exception, another exception occurred:
+[32mscanner    |[0m 
+[32mscanner    |[0m Traceback (most recent call last):
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+[32mscanner    |[0m     response = self._make_request(
+[32mscanner    |[0m                ^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/connectionpool.py", line 491, in _make_request
+[32mscanner    |[0m     raise new_e
+[32mscanner    |[0m urllib3.exceptions.SSLError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)
+[32mscanner    |[0m 
+[32mscanner    |[0m The above exception was the direct cause of the following exception:
+[32mscanner    |[0m 
+[32mscanner    |[0m Traceback (most recent call last):
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/requests/adapters.py", line 486, in send
+[32mscanner    |[0m     resp = conn.urlopen(
+[32mscanner    |[0m            ^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/connectionpool.py", line 844, in urlopen
+[32mscanner    |[0m     retries = retries.increment(
+[32mscanner    |[0m               ^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/urllib3/util/retry.py", line 515, in increment
+[32mscanner    |[0m     raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+[32mscanner    |[0m     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='0.0.0.0', port=5000): Max retries exceeded with url: /AddGraphData (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+[32mscanner    |[0m 
+[32mscanner    |[0m During handling of the above exception, another exception occurred:
+[32mscanner    |[0m 
+[32mscanner    |[0m Traceback (most recent call last):
+[32mscanner    |[0m   File "/app/scanner.py", line 73, in <module>
+[32mscanner    |[0m     schedule.run_pending()
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/schedule/__init__.py", line 822, in run_pending
+[32mscanner    |[0m     default_scheduler.run_pending()
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/schedule/__init__.py", line 100, in run_pending
+[32mscanner    |[0m     self._run_job(job)
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/schedule/__init__.py", line 172, in _run_job
+[32mscanner    |[0m     ret = job.run()
+[32mscanner    |[0m           ^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/schedule/__init__.py", line 693, in run
+[32mscanner    |[0m     ret = self.job_func()
+[32mscanner    |[0m           ^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/app/scanner.py", line 54, in scan
+[32mscanner    |[0m     response = requests.post(url, json=data)
+[32mscanner    |[0m                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/requests/api.py", line 115, in post
+[32mscanner    |[0m     return request("post", url, data=data, json=json, **kwargs)
+[32mscanner    |[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/requests/api.py", line 59, in request
+[32mscanner    |[0m     return session.request(method=method, url=url, **kwargs)
+[32mscanner    |[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+[32mscanner    |[0m     resp = self.send(prep, **send_kwargs)
+[32mscanner    |[0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+[32mscanner    |[0m     r = adapter.send(request, **kwargs)
+[32mscanner    |[0m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[32mscanner    |[0m   File "/usr/lib/python3.11/site-packages/requests/adapters.py", line 517, in send
+[32mscanner    |[0m     raise SSLError(e, request=request)
+[32mscanner    |[0m requests.exceptions.SSLError: HTTPSConnectionPool(host='0.0.0.0', port=5000): Max retries exceeded with url: /AddGraphData (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)')))
+[32mscanner exited with code 1
+[0m[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 16:05:25] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 16:25:12] "[33mPOST /AddGraphData HTTP/1.1[0m" 404 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 16:25:36] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-09 16:25:47.883 UTC [28] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-09 16:25:48.230 UTC [28] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.313 s, sync=0.011 s, total=0.348 s; sync files=4, longest=0.009 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/19450B0, redo lsn=0/1945078
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 16:26:58] "POST /AddGraphData HTTP/1.1" 200 -
+[36mflask-rest-api exited with code 137
+[0m[33mlocal_db   |[0m 2024-01-09 16:30:47.300 UTC [28] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-09 16:30:47.640 UTC [28] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.308 s, sync=0.009 s, total=0.341 s; sync files=4, longest=0.007 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/19456C0, redo lsn=0/1945688
+[33mlocal_db   |[0m 2024-01-09 16:36:01.346 UTC [1] LOG:  received fast shutdown request
+[33mlocal_db   |[0m 2024-01-09 16:36:01.354 UTC [1] LOG:  aborting any active transactions
+[33mlocal_db   |[0m 2024-01-09 16:36:01.369 UTC [1] LOG:  background worker "logical replication launcher" (PID 33) exited with exit code 1
+[33mlocal_db   |[0m 2024-01-09 16:36:01.384 UTC [28] LOG:  shutting down
+[33mlocal_db   |[0m 2024-01-09 16:36:01.393 UTC [28] LOG:  checkpoint starting: shutdown immediate
+[33mlocal_db   |[0m 2024-01-09 16:36:01.429 UTC [28] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.046 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=1 kB; lsn=0/1945770, redo lsn=0/1945770
+[33mlocal_db   |[0m 2024-01-09 16:36:01.460 UTC [1] LOG:  database system is shut down
+[33mlocal_db exited with code 0
+[0m

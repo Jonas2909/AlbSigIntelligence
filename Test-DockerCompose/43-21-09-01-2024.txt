@@ -1,0 +1,27 @@
+Interface: wlan0, type: EN10MB, MAC: b8:27:eb:43:01:f7, IPv4: 141.87.56.234
+Starting arp-scan 1.10.0 with 2048 hosts (https://github.com/royhills/arp-scan)
+141.87.56.2	1e:3e:14:2c:c3:e0 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.4	f6:c1:97:a5:5a:97 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.99	82:3c:33:07:be:0a (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.114	7a:07:09:9c:0a:9f (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.120	b2:5f:46:71:4d:21 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.156	a6:99:45:35:4b:50 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.205	80:32:53:32:e8:7b (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.206	f4:8c:50:c9:96:13 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.240	18:56:80:4e:be:57 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.59.123	de:f6:ce:06:0d:67 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.126	a4:55:90:61:7f:dd (e0:d1:73:29:5b:90)	Xiaomi Communications Co Ltd
+141.87.59.195	ca:27:f2:98:34:dd (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.206	6e:58:21:3c:2f:ca (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.10	aa:22:39:ac:37:a0 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.19	3c:f0:11:75:38:75 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.64	16:75:c2:4f:33:63 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.118	64:bc:58:47:74:08 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.196	d4:6e:0e:02:94:38 (e0:d1:73:29:5b:90)	TP-LINK TECHNOLOGIES CO.,LTD.
+141.87.60.253	c6:f3:ab:6e:28:d6 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.63.253	00:62:ec:42:fa:f9 (e0:d1:73:29:5b:90)	Cisco Systems, Inc
+141.87.63.254	28:6f:7f:01:54:2e	Cisco Systems, Inc
+141.87.60.118	64:bc:58:47:74:08	Intel Corporate (DUP: 2)
+
+22 packets received by filter, 0 packets dropped by kernel
+Ending arp-scan 1.10.0: 2048 hosts scanned in 9.768 seconds (209.66 hosts/sec). 21 responded

@@ -1,0 +1,213 @@
+Interface: wlan0, type: EN10MB, MAC: b8:27:eb:43:01:f7, IPv4: 141.87.56.234
+Starting arp-scan 1.10.0 with 2048 hosts (https://github.com/royhills/arp-scan)
+141.87.56.1	86:34:fa:1b:fc:63 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.6	76:0d:1b:35:c3:cc (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.7	6a:d3:44:82:40:a4 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.8	8a:1f:4e:5d:06:8d (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.9	f6:8f:ca:c7:5d:0d (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.14	0e:27:e1:0a:0f:92 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.15	c2:88:b8:81:1f:a2 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.17	16:94:6b:aa:29:46 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.18	da:98:c8:63:54:e8 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.19	6a:49:55:f3:5f:d0 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.22	28:df:eb:e7:51:da (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.23	3c:21:9c:ae:cf:72 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.24	74:4c:a1:9d:cb:45 (e0:d1:73:29:5b:90)	Liteon Technology Corporation
+141.87.56.25	92:fb:21:8f:96:b4 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.26	b6:6e:e4:42:8d:9c (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.27	f6:c6:1e:bb:b8:70 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.28	1e:af:4e:4f:ec:8d (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.29	2a:9c:39:40:53:71 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.30	ba:c8:83:58:e4:23 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.31	00:45:e2:ce:d5:8f (e0:d1:73:29:5b:90)	CyberTAN Technology Inc.
+141.87.56.33	96:47:96:4e:4f:3e (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.36	22:f0:0b:89:fc:14 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.37	bc:f4:d4:bb:bb:69 (e0:d1:73:29:5b:90)	CLOUD NETWORK TECHNOLOGY SINGAPORE PTE. LTD.
+141.87.56.38	de:0f:19:76:d6:ee (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.39	76:95:ac:29:a5:53 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.41	6c:c7:ec:30:3f:2d (e0:d1:73:29:5b:90)	SAMSUNG ELECTRO-MECHANICS(THAILAND)
+141.87.56.44	26:57:e0:14:39:a4 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.45	d4:57:63:d9:f9:d2 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.56.46	10:94:bb:d3:32:fa (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.56.47	aa:5d:38:6a:1c:a9 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.48	96:0f:05:3b:a4:e4 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.49	c4:23:60:47:33:a3 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.51	e2:48:8c:da:68:37 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.53	6a:91:ef:ed:39:b0 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.54	4a:cb:17:81:8c:6a (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.55	a2:b3:7c:a7:0c:96 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.56	c2:b2:02:83:77:ac (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.57	6c:a1:00:5c:f8:91 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.59	3c:06:30:33:48:45 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.56.60	6c:7e:67:c7:32:88 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.56.63	ae:f0:04:5e:ae:96 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.64	b2:96:c2:32:c3:b8 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.65	ee:93:84:9e:18:f5 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.66	a2:91:e0:68:4d:90 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.67	ce:2b:75:7d:35:f6 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.68	7a:86:3f:31:ea:a6 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.72	06:17:42:8e:fe:c0 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.73	7a:07:09:9c:0a:9f (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.75	5a:b4:87:e7:6c:12 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.76	76:4c:b3:62:4e:29 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.77	32:5b:84:aa:ca:fd (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.79	ba:39:0b:69:e0:75 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.80	a2:7f:de:50:39:9a (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.82	d2:c0:ae:3e:0b:a6 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.83	b2:1c:81:68:73:f9 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.84	c4:75:ab:d1:d8:9b (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.85	d2:d3:c3:9e:e4:b5 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.86	88:29:9c:b0:0c:dd (e0:d1:73:29:5b:90)	Samsung Electronics Co.,Ltd
+141.87.56.88	72:de:99:ba:49:7f (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.89	84:fd:d1:bf:d5:b0 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.94	be:39:50:55:47:07 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.95	46:92:ba:d8:94:58 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.96	d6:6a:04:66:d1:7c (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.97	b2:5f:46:71:4d:21 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.98	c6:dc:a1:1a:87:86 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.99	ea:de:42:b2:c0:a3 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.101	e6:3c:58:c0:51:b2 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.102	6e:5e:0d:ff:f7:dd (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.103	76:27:1f:98:8c:2c (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.104	14:7d:da:2f:61:ad (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.56.105	60:3e:5f:34:00:ae (e0:d1:73:29:5b:90)	(Unknown)
+141.87.56.106	5e:83:a5:97:97:21 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.107	42:1d:e5:f7:d1:5d (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.108	e8:fb:1c:de:e4:0b (e0:d1:73:29:5b:90)	AzureWave Technology Inc.
+141.87.56.109	ae:71:6d:2f:a3:fa (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.110	0e:4a:5e:0c:fb:b5 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.111	f0:0f:ec:ee:83:3e (e0:d1:73:29:5b:90)	HUAWEI TECHNOLOGIES CO.,LTD
+141.87.56.112	3e:25:0e:48:d0:31 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.114	b0:be:83:75:8e:ac (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.56.115	92:b9:b3:e0:e8:64 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.116	8e:4d:5e:34:d9:cb (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.117	a0:4a:5e:d1:ff:d3 (e0:d1:73:29:5b:90)	Microsoft Corporation
+141.87.56.118	4c:d5:77:a6:10:13 (e0:d1:73:29:5b:90)	CHONGQING FUGUI ELECTRONICS CO.,LTD.
+141.87.56.120	72:9d:f7:30:91:d6 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.121	0a:98:94:4a:f4:c3 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.122	82:2c:04:a2:c6:03 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.123	0a:f1:59:f4:4a:1c (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.125	ca:fc:98:21:72:e6 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.126	3c:22:fb:aa:ba:f7 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.56.127	02:dc:c9:65:9c:75 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.56.130	8c:aa:ce:52:7c:7d (e0:d1:73:29:5b:90)	Xiaomi Communications Co Ltd
+141.87.56.134	a0:78:17:83:64:80 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.56.139	a8:93:4a:e5:4d:e1 (e0:d1:73:29:5b:90)	CHONGQING FUGUI ELECTRONICS CO.,LTD.
+141.87.56.153	7c:c2:c6:0d:32:6d (e0:d1:73:29:5b:90)	TP-Link Corporation Limited
+141.87.56.187	88:d8:2e:9f:36:52 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.191	cc:6b:1e:54:f5:e1 (e0:d1:73:29:5b:90)	CLOUD NETWORK TECHNOLOGY SINGAPORE PTE. LTD.
+141.87.56.192	60:f2:62:3a:86:f3 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.205	80:32:53:32:e8:7b (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.220	74:d8:3e:ea:c4:3c (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.56.241	40:1a:58:6c:70:53 (e0:d1:73:29:5b:90)	Wistron Neweb Corporation
+141.87.59.124	4a:4f:01:97:86:e9 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.125	4a:f2:eb:96:ba:f9 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.126	a4:55:90:61:7f:dd (e0:d1:73:29:5b:90)	Xiaomi Communications Co Ltd
+141.87.59.129	fa:11:95:c5:4e:07 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.195	4a:2a:86:05:94:0d (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.205	16:8f:45:d7:1b:d6 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.206	6e:58:21:3c:2f:ca (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.208	ac:07:5f:68:18:02 (e0:d1:73:29:5b:90)	HUAWEI TECHNOLOGIES CO.,LTD
+141.87.59.209	42:88:82:c1:a6:45 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.221	ba:aa:59:45:97:87 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.227	72:81:fb:16:8a:3d (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.243	fe:7c:ff:89:75:66 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.59.250	ec:63:d7:f0:2f:08 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.59.252	46:43:8f:25:ed:da (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.3	5a:06:8b:ac:bc:c8 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.19	98:43:fa:65:86:cd (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.21	aa:9d:18:f5:91:f6 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.22	92:09:dd:47:de:a0 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.24	a6:af:66:eb:ba:c5 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.25	92:8c:7a:0a:45:a3 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.26	66:be:19:79:04:16 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.27	22:7e:ce:6e:18:02 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.28	66:30:35:50:96:ad (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.29	04:d6:aa:6c:24:92 (e0:d1:73:29:5b:90)	SAMSUNG ELECTRO-MECHANICS(THAILAND)
+141.87.60.32	12:4c:e1:62:1a:77 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.33	f4:6d:3f:8a:87:25 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.35	9a:83:9f:b7:4d:08 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.36	0c:dd:24:24:07:b1 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.37	4a:c5:9e:33:26:c7 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.40	6c:7e:67:e5:36:a5 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.60.41	70:a8:d3:90:aa:79 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.44	1c:c1:0c:fb:a9:0f (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.45	ee:40:87:56:86:91 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.46	48:5f:99:d0:3f:13 (e0:d1:73:29:5b:90)	Cloud Network Technology (Samoa) Limited
+141.87.60.48	6e:b6:fa:71:02:cc (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.49	b2:4e:9d:c8:d5:6c (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.51	16:b7:de:33:21:05 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.52	3e:88:1e:eb:c4:6b (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.56	6e:de:39:14:e9:f0 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.57	46:40:b9:be:da:63 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.58	de:f6:ce:06:0d:67 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.60	46:fa:09:05:60:26 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.61	74:a6:cd:a1:ee:a5 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.60.62	f6:c4:8c:98:4b:3b (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.64	72:11:a5:36:23:89 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.65	6a:2a:2c:81:27:8e (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.66	b0:be:83:75:17:86 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.60.68	76:ab:70:55:21:19 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.69	9a:00:bc:ae:82:70 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.71	6e:d5:c1:04:a5:36 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.72	7e:67:bb:a1:99:5a (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.73	4e:b3:15:70:f0:ca (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.74	6e:d1:55:66:af:9d (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.76	14:5a:fc:22:34:53 (e0:d1:73:29:5b:90)	Liteon Technology Corporation
+141.87.60.79	06:6c:48:2e:d6:56 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.81	4a:08:8b:07:1d:98 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.82	c0:84:7d:12:15:25 (e0:d1:73:29:5b:90)	AMPAK Technology, Inc.
+141.87.60.83	a6:9b:0a:5d:0b:6d (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.84	2e:1b:d7:8b:73:17 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.85	ae:79:7c:44:aa:ae (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.86	e2:b5:42:c3:da:4d (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.87	f8:4d:89:8b:1e:81 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.60.88	c4:91:0c:b1:49:f6 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.60.89	3c:55:76:a4:d2:69 (e0:d1:73:29:5b:90)	CLOUD NETWORK TECHNOLOGY SINGAPORE PTE. LTD.
+141.87.60.90	8a:98:15:b4:6f:4a (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.92	b0:7d:64:7f:83:7a (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.94	4e:76:28:49:16:0c (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.97	4a:3d:b1:31:61:90 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.98	16:ce:58:e1:19:38 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.99	9a:80:ce:98:21:5b (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.100	30:d1:6b:cb:3b:11 (e0:d1:73:29:5b:90)	Liteon Technology Corporation
+141.87.60.101	82:89:35:7a:fe:58 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.102	8a:e8:41:59:4b:66 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.103	0c:9a:3c:aa:fb:22 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.104	4e:18:53:c9:29:74 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.106	90:78:b2:75:cb:6d (e0:d1:73:29:5b:90)	Xiaomi Communications Co Ltd
+141.87.60.107	ca:dc:ff:83:68:1b (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.108	8a:38:f9:62:ae:cd (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.112	26:5f:24:b5:fa:1c (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.113	3c:f0:11:75:38:75 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.114	ca:76:e6:ed:19:b0 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.115	ee:a1:5b:5f:9e:8c (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.116	ba:f5:05:1b:ff:2b (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.117	aa:ae:53:8c:0e:20 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.119	d8:fc:93:cc:1d:1b (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.121	aa:13:63:ac:d1:81 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.122	be:10:e5:84:2c:6e (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.124	9a:a6:4a:d3:65:7b (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.125	14:13:33:ae:9e:23 (e0:d1:73:29:5b:90)	AzureWave Technology Inc.
+141.87.60.126	f0:2f:4b:11:b4:6d (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.60.127	1e:82:f1:95:cb:b8 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.131	9a:62:92:78:b6:d1 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.133	d8:80:83:9b:7b:67 (e0:d1:73:29:5b:90)	CLOUD NETWORK TECHNOLOGY SINGAPORE PTE. LTD.
+141.87.60.134	e8:5a:8b:0e:a0:0e (e0:d1:73:29:5b:90)	Xiaomi Communications Co Ltd
+141.87.60.135	28:16:a8:50:c1:f9 (e0:d1:73:29:5b:90)	Microsoft Corporation
+141.87.60.138	6c:a1:00:59:fe:f3 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.139	10:63:c8:9d:b1:73 (e0:d1:73:29:5b:90)	Liteon Technology Corporation
+141.87.60.140	bc:d0:74:ee:ca:58 (e0:d1:73:29:5b:90)	Apple, Inc.
+141.87.60.142	62:b2:e0:be:6d:a6 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.143	6e:ca:89:f5:c1:33 (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.144	c0:b8:83:d5:ee:4a (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.145	18:94:c6:25:95:97 (e0:d1:73:29:5b:90)	ShenZhen Chenyee Technology Co., Ltd.
+141.87.60.146	06:73:5f:d9:47:ae (e0:d1:73:29:5b:90)	(Unknown: locally administered)
+141.87.60.147	c0:b6:f9:96:ac:b2 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.60.196	d4:6e:0e:02:94:38 (e0:d1:73:29:5b:90)	TP-LINK TECHNOLOGIES CO.,LTD.
+141.87.61.22	70:cf:49:f8:83:83 (e0:d1:73:29:5b:90)	Intel Corporate
+141.87.63.253	00:62:ec:42:fa:f9 (e0:d1:73:29:5b:90)	Cisco Systems, Inc
+141.87.63.254	28:6f:7f:01:54:2e	Cisco Systems, Inc
+
+208 packets received by filter, 0 packets dropped by kernel
+Ending arp-scan 1.10.0: 2048 hosts scanned in 9.430 seconds (217.18 hosts/sec). 208 responded

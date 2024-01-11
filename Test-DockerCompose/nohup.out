@@ -1,0 +1,156 @@
+Starting local_db ... 
+[1A[2KStarting local_db ... [32mdone[0m[1BStarting flask-rest-api ... 
+[1A[2KStarting flask-rest-api ... [32mdone[0m[1BStarting scanner        ... 
+[1A[2KStarting scanner        ... [32mdone[0m[1BAttaching to local_db, flask-rest-api, scanner
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 2024-01-09 18:02:28.113 UTC [1] LOG:  starting PostgreSQL 16.1 (Debian 16.1-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mlocal_db   |[0m 2024-01-09 18:02:28.115 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mlocal_db   |[0m 2024-01-09 18:02:28.115 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mlocal_db   |[0m 2024-01-09 18:02:28.151 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mlocal_db   |[0m 2024-01-09 18:02:28.186 UTC [29] LOG:  database system was interrupted; last known up at 2024-01-09 17:19:15 UTC
+[33mlocal_db   |[0m 2024-01-09 18:02:28.414 UTC [29] LOG:  database system was not properly shut down; automatic recovery in progress
+[33mlocal_db   |[0m 2024-01-09 18:02:28.445 UTC [29] LOG:  redo starts at 0/1946060
+[33mlocal_db   |[0m 2024-01-09 18:02:28.445 UTC [29] LOG:  invalid record length at 0/1946148: expected at least 24, got 0
+[33mlocal_db   |[0m 2024-01-09 18:02:28.445 UTC [29] LOG:  redo done at 0/1946110 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+[33mlocal_db   |[0m 2024-01-09 18:02:28.471 UTC [27] LOG:  checkpoint starting: end-of-recovery immediate wait
+[33mlocal_db   |[0m 2024-01-09 18:02:28.546 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.019 s, sync=0.005 s, total=0.081 s; sync files=2, longest=0.003 s, average=0.003 s; distance=0 kB, estimate=0 kB; lsn=0/1946148, redo lsn=0/1946148
+[33mlocal_db   |[0m 2024-01-09 18:02:28.677 UTC [1] LOG:  database system is ready to accept connections
+[36mflask-rest-api |[0m  * Serving Flask app 'RestService' (lazy loading)
+[36mflask-rest-api |[0m  * Environment: production
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m    Use a production WSGI server instead.
+[36mflask-rest-api |[0m  * Debug mode: on
+[36mflask-rest-api |[0m WARNING:werkzeug: * Running on all addresses.
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m INFO:werkzeug: * Running on https://172.18.0.3:5000/ (Press CTRL+C to quit)
+[36mflask-rest-api |[0m INFO:werkzeug: * Restarting with stat
+[36mflask-rest-api |[0m WARNING:werkzeug: * Debugger is active!
+[36mflask-rest-api |[0m INFO:werkzeug: * Debugger PIN: 135-005-259
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [09/Jan/2024 18:06:18] "GET /GetGraphData HTTP/1.1" 200 -
+[32mscanner    |[0m ./automationArp: line 15: curl: not found
+[36mflask-rest-api exited with code 0
+[0m[32mscanner exited with code 137
+[0m[33mlocal_db   |[0m 2024-01-09 20:06:36.691 UTC [1] LOG:  received fast shutdown request
+[33mlocal_db   |[0m 2024-01-09 20:06:36.699 UTC [1] LOG:  aborting any active transactions
+[33mlocal_db   |[0m 2024-01-09 20:06:36.713 UTC [1] LOG:  background worker "logical replication launcher" (PID 32) exited with exit code 1
+[33mlocal_db   |[0m 2024-01-09 20:06:36.722 UTC [27] LOG:  shutting down
+[33mlocal_db   |[0m 2024-01-09 20:06:36.728 UTC [27] LOG:  checkpoint starting: shutdown immediate
+[33mlocal_db   |[0m 2024-01-09 20:06:36.753 UTC [27] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.001 s, total=0.031 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB; lsn=0/19461F8, redo lsn=0/19461F8
+[33mlocal_db   |[0m 2024-01-09 20:06:36.779 UTC [1] LOG:  database system is shut down
+[33mlocal_db exited with code 0
+[0mStarting local_db ... 
+[1A[2KStarting local_db ... [32mdone[0m[1BRecreating flask-rest-api ... 
+[1A[2KRecreating flask-rest-api ... [32mdone[0m[1BRecreating scanner        ... 
+[1A[2KRecreating scanner        ... [32mdone[0m[1BAttaching to local_db, flask-rest-api, scanner
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m PostgreSQL Database directory appears to contain a database; Skipping initialization
+[33mlocal_db   |[0m 
+[33mlocal_db   |[0m 2024-01-09 21:47:46.225 UTC [1] LOG:  starting PostgreSQL 16.1 (Debian 16.1-1.pgdg120+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
+[33mlocal_db   |[0m 2024-01-09 21:47:46.226 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[33mlocal_db   |[0m 2024-01-09 21:47:46.226 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[33mlocal_db   |[0m 2024-01-09 21:47:46.247 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[33mlocal_db   |[0m 2024-01-09 21:47:46.290 UTC [29] LOG:  database system was shut down at 2024-01-09 21:43:59 UTC
+[33mlocal_db   |[0m 2024-01-09 21:47:46.338 UTC [1] LOG:  database system is ready to accept connections
+[36mflask-rest-api |[0m  * Serving Flask app 'RestService' (lazy loading)
+[36mflask-rest-api |[0m  * Environment: production
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m    Use a production WSGI server instead.
+[36mflask-rest-api |[0m  * Debug mode: on
+[36mflask-rest-api |[0m WARNING:werkzeug: * Running on all addresses.
+[36mflask-rest-api |[0m    WARNING: This is a development server. Do not use it in a production deployment.
+[36mflask-rest-api |[0m INFO:werkzeug: * Running on https://172.18.0.3:5000/ (Press CTRL+C to quit)
+[36mflask-rest-api |[0m INFO:werkzeug: * Restarting with stat
+[36mflask-rest-api |[0m WARNING:werkzeug: * Debugger is active!
+[36mflask-rest-api |[0m INFO:werkzeug: * Debugger PIN: 135-005-259
+[33mlocal_db   |[0m 2024-01-09 21:52:46.287 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-09 21:52:46.325 UTC [27] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.013 s, sync=0.004 s, total=0.039 s; sync files=2, longest=0.002 s, average=0.002 s; distance=0 kB, estimate=0 kB; lsn=0/19470D8, redo lsn=0/19470A0
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [10/Jan/2024 08:15:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-10 08:17:54.986 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-10 08:17:55.345 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.322 s, sync=0.011 s, total=0.359 s; sync files=4, longest=0.009 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/1947808, redo lsn=0/19477D0
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 08:48:38] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 08:52:20] "[33mGET / HTTP/1.1[0m" 404 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 08:52:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 08:52:25] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 08:52:29] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 08:57:24] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:00:33] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:01:20] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:01:35] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:01:37] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:01:38] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:01:39] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:01:40] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:02:03] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:02:43] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:03:00] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:03:33] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:03:43] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:04:16] "GET /GetGraphData HTTP/1.1" 200 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 09:05:48] "GET /GetGraphData HTTP/1.1" 200 -
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [10/Jan/2024 10:00:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-10 10:02:57.020 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-10 10:02:57.526 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.421 s, sync=0.011 s, total=0.509 s; sync files=4, longest=0.009 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/1947F78, redo lsn=0/1947F40
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [10/Jan/2024 11:45:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-10 11:47:58.832 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-10 11:47:59.176 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.311 s, sync=0.010 s, total=0.344 s; sync files=4, longest=0.008 s, average=0.003 s; distance=1 kB, estimate=1 kB; lsn=0/1948750, redo lsn=0/1948718
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [10/Jan/2024 12:04:17] "GET /GetGraphData HTTP/1.1" 200 -
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [10/Jan/2024 13:15:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-10 13:17:59.401 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-10 13:17:59.745 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.311 s, sync=0.010 s, total=0.344 s; sync files=4, longest=0.008 s, average=0.003 s; distance=2 kB, estimate=2 kB; lsn=0/1948F50, redo lsn=0/1948F18
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [10/Jan/2024 14:15:09] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-10 14:18:00.448 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-10 14:18:00.925 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.345 s, sync=0.010 s, total=0.478 s; sync files=4, longest=0.008 s, average=0.003 s; distance=2 kB, estimate=2 kB; lsn=0/19497A0, redo lsn=0/1949768
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [10/Jan/2024 16:00:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-10 16:03:02.263 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-10 16:03:02.607 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.312 s, sync=0.010 s, total=0.344 s; sync files=4, longest=0.009 s, average=0.003 s; distance=2 kB, estimate=2 kB; lsn=0/194A048, redo lsn=0/1949FF8
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [10/Jan/2024 17:45:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-10 17:48:04.099 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-10 17:48:04.443 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.311 s, sync=0.011 s, total=0.344 s; sync files=4, longest=0.009 s, average=0.003 s; distance=2 kB, estimate=2 kB; lsn=0/194A928, redo lsn=0/194A8F0
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [10/Jan/2024 19:15:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-10 19:18:05.544 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-10 19:18:05.943 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.312 s, sync=0.064 s, total=0.399 s; sync files=4, longest=0.062 s, average=0.016 s; distance=2 kB, estimate=2 kB; lsn=0/194B248, redo lsn=0/194B210
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [11/Jan/2024 06:54:46] "[33mGET / HTTP/1.1[0m" 404 -
+[36mflask-rest-api |[0m INFO:werkzeug:141.87.60.118 - - [11/Jan/2024 06:54:51] "GET /GetGraphData HTTP/1.1" 200 -
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [11/Jan/2024 08:15:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-11 08:18:17.899 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-11 08:18:18.241 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.311 s, sync=0.010 s, total=0.342 s; sync files=4, longest=0.009 s, average=0.003 s; distance=2 kB, estimate=2 kB; lsn=0/194BBB8, redo lsn=0/194BB80
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [11/Jan/2024 10:00:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-11 10:03:18.676 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-11 10:03:19.022 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.311 s, sync=0.011 s, total=0.346 s; sync files=4, longest=0.009 s, average=0.003 s; distance=2 kB, estimate=2 kB; lsn=0/194C580, redo lsn=0/194C548
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [11/Jan/2024 11:45:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-11 11:48:19.780 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-11 11:48:20.126 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.312 s, sync=0.009 s, total=0.346 s; sync files=4, longest=0.007 s, average=0.003 s; distance=2 kB, estimate=2 kB; lsn=0/194CF80, redo lsn=0/194CF48
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [11/Jan/2024 13:15:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-11 13:18:20.083 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-11 13:18:20.431 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.311 s, sync=0.010 s, total=0.349 s; sync files=4, longest=0.007 s, average=0.003 s; distance=2 kB, estimate=2 kB; lsn=0/194D9C0, redo lsn=0/194D988
+[32mscanner    |[0m /usr/lib/python3.11/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host '0.0.0.0'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+[32mscanner    |[0m   warnings.warn(
+[36mflask-rest-api |[0m INFO:werkzeug:172.18.0.1 - - [11/Jan/2024 14:15:10] "POST /AddGraphData HTTP/1.1" 200 -
+[33mlocal_db   |[0m 2024-01-11 14:18:21.064 UTC [27] LOG:  checkpoint starting: time
+[33mlocal_db   |[0m 2024-01-11 14:18:21.409 UTC [27] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.311 s, sync=0.011 s, total=0.346 s; sync files=4, longest=0.008 s, average=0.003 s; distance=2 kB, estimate=2 kB; lsn=0/194E468, redo lsn=0/194E430
