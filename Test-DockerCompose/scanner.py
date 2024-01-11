@@ -54,7 +54,7 @@ def scan():
 		data={ 'time_stamp': current_unix_time,'quantity': amount}        
 
 		# send timestamp with amount
-		response = requests.post(url, json=data, verify=False)
+		response = requests.post(url,json=data, verify=False)
 		if response.status_code != 200:
 			print(response)
 			print(response.text)
@@ -89,7 +89,7 @@ schedule.every().day.at("16:45").do(scan)
 schedule.every().day.at("18:15").do(scan)
 
 # scheduled task for development
-schedule.every().day.at("16:31").do(scan)
+schedule.every().day.at("16:47").do(scan)
 
 while True:
     schedule.run_pending()
