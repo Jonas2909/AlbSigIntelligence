@@ -8,6 +8,7 @@ from database import (
     check_if_user_exists_by_username,
     add_graph_data_database,
     get_graph_data,
+    get_hashed_mac_addresses,
     get_graph_data_from_to,
     get_entries_by_mac_address,
 )
@@ -71,6 +72,13 @@ def add_graph_data():
     quantity = data.get('quantity')
     if time_stamp and quantity:
         result = add_graph_data_database(time_stamp, quantity)
+    hashed_mac_address = data.get('hashed_mac_address')
+
+    if time_stamp and (quantity or hashed_mac_address):
+        if quantity:
+            result = add_graph_data_database(time_stamp, quantity)
+        elif hashed_mac_address:
+            result = add_graph_data_database(time_stamp, hashed_mac_address, is_quantity=False)
         return result
     else:
         abort(404, "Error Adding Graph Data to database.")

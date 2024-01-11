@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    command: ["python3", "RestService.py"]
+    container_name: flask-rest-api
+    networks:
+      - localnetwork
+      
+  db:
+    image: postgres
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_DB: exampledb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+    container_name: local_db
+    networks:
+      - localnetwork
+
+  scanner:
+    build:
+      context: .
+      dockerfile: Dockerfile.scanner
+    depends_on:
+      - app
+    command: ["python3", "scanner.py"]
+    container_name: scanner
+    volumes:
+      - ./:/app
+    network_mode: "host"
+    
+networks:
+  localnetwork:
+
