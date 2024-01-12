@@ -117,8 +117,6 @@ export default function Visualization() {
   };
 
   const fetchMeasurements = async (fromUtcInSeconds, toUtcInSeconds) => {
-    console.log("Fetching URL:", "https://localhost:5000/GetGraphDataFromTo");
-
     // Check if fromUtcInSeconds and toUtcInSeconds are the same
     if (fromUtcInSeconds === toUtcInSeconds) {
       console.log("From and To value equal");
@@ -176,8 +174,8 @@ export default function Visualization() {
   };
 
   const calculateMeasurements = (responseData) => {
-    console.log(responseData);
-    console.log(responseData.data.length);
+    //console.log(responseData);
+    //console.log(responseData.data.length);
 
     // Group measurements by day
     const measurementsByDay = responseData.data.reduce((result, measurement) => {
@@ -213,7 +211,7 @@ export default function Visualization() {
       };
     });
 
-    console.log(newArrayWithAverages);
+    //console.log(newArrayWithAverages);
     setMeasurements(newArrayWithAverages);
   };
 
@@ -262,15 +260,15 @@ export default function Visualization() {
 
   const handleDateTypeChange = async (dateType: string) => {
     var date = new Date();
-    console.log("Function handleDateTypeChange: date=" + date);
+    //console.log("Function handleDateTypeChange: date=" + date);
 
     switch (dateType) {
       case "day":
         setDateType("day");
         setStartDate(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0).valueOf());
         setEndDate(new Date(date.getFullYear(), date.getMonth(), date.getDate() + 0, 0, 0, 0, 0).valueOf());
-        console.log(new Date(startDate).toLocaleString());
-        console.log(new Date(endDate).toLocaleString());
+        //console.log(new Date(startDate).toLocaleString());
+        //console.log(new Date(endDate).toLocaleString());
         break;
 
       case "week":
@@ -278,16 +276,16 @@ export default function Visualization() {
         let monday = getMonday(new Date());
         setStartDate(monday.valueOf())
         setEndDate(new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + 7, 0, 0, 0, 0).valueOf())
-        console.log(new Date(startDate).toLocaleString());
-        console.log(new Date(endDate).toLocaleString());
+        //console.log(new Date(startDate).toLocaleString());
+        //console.log(new Date(endDate).toLocaleString());
         break;
 
       case "month":
         setDateType("month");
         setStartDate(new Date(date.getFullYear(), date.getMonth(), 1).valueOf());
         setEndDate(new Date(date.getFullYear(), date.getMonth() + 1, 1, 0, 0, 0, 0).valueOf());
-        console.log(new Date(startDate).toLocaleString());
-        console.log(new Date(endDate).toLocaleString());
+        //console.log(new Date(startDate).toLocaleString());
+        //console.log(new Date(endDate).toLocaleString());
         break;
 
       default:
