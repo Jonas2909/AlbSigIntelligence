@@ -150,8 +150,11 @@ export default function Visualization() {
         const responseData = await response.json();
 
         if (responseData && responseData.data && responseData.data.length > 0) {
-          console.log(responseData);
-          setMeasurements(responseData.data);
+          if (dateType === "tag" || dateType === "week" || dateType === "month") {
+            calculateMeasurements(responseData);
+          } else {
+            setMeasurements(responseData.data);
+          }
         } else {
           setSnackbarMessage("Could not find any measurements in the given timespan.");
           setSnackbarOpen(true);
@@ -171,6 +174,49 @@ export default function Visualization() {
       throw error;
     }
   };
+
+  const calculateMeasurements = (responseData) => {
+    console.log(responseData);
+    console.log(responseData.data.length);
+
+    // Group measurements by day
+    const measurementsByDay = responseData.data.reduce((result, measurement) => {
+      const timestamp = measurement.time_stamp;
+
+      // Check if the timestamp is a valid number and greater than the Unix epoch
+      if (!isNaN(timestamp) && timestamp > 0) {
+        const day = new Date(timestamp * 1000).toISOString().split('T')[0]; // Convert timestamp to ISO date
+
+        if (!result[day]) {
+          result[day] = [];
+        }
+
+        result[day].push(measurement);
+      }
+
+      return result;
+    }, {});
+
+    // Calculate the average for each day and create a new array with the calculated averages
+    let idCounter = 1;
+    const newArrayWithAverages = Object.keys(measurementsByDay).map((day) => {
+      const measurementsForDay = measurementsByDay[day];
+      const sumOfQuantities = measurementsForDay.reduce((sum, measurement) => sum + measurement.quantity, 0);
+      const average = (sumOfQuantities / measurementsForDay.length).toFixed(0); // Round to two decimal places
+
+      const dayInUtcSeconds = Math.floor(new Date(day).getTime() / 1000); // Convert to UTC seconds
+
+      return {
+        id: idCounter++,
+        time_stamp: dayInUtcSeconds,
+        quantity: average,
+      };
+    });
+
+    console.log(newArrayWithAverages);
+    setMeasurements(newArrayWithAverages);
+  };
+
 
   const fetchTimeStamps = async (mac) => {
     console.log("Fetching URL:", "https://localhost:5000/GetTimeStampsByMac");
