@@ -498,7 +498,7 @@ export default function Visualization() {
               />
               <Tooltip
                 labelFormatter={(unixTime) =>
-                  moment.unix(unixTime).format('DD.MM.YY HH:mm')
+                  moment.unix(unixTime).format('DD.MM.YY')
                 }
                 isAnimationActive={false}
               />
