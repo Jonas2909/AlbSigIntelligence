@@ -63,7 +63,7 @@ def scan():
 		for MAC in mac_addresses:
 			hashed_mac_address = hashlib.sha256(MAC.encode()).hexdigest()
 			data={ 'hashed_mac_address': hashed_mac_address, 'time_stamp': current_unix_time,}
-			response = requests.post(url, json=data)
+			response = requests.post(url, json=data, verify = False)
 
 		# Delete the file after processing and sending data
 		try:
@@ -89,7 +89,7 @@ schedule.every().day.at("16:45").do(scan)
 schedule.every().day.at("18:15").do(scan)
 
 # scheduled task for development
-schedule.every().day.at("16:47").do(scan)
+# schedule.every().day.at("18:49").do(scan)
 
 while True:
     schedule.run_pending()
