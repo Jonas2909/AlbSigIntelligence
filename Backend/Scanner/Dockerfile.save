@@ -5,11 +5,10 @@ RUN apk add --no-cache python3-dev
 RUN apk --no-cache add arp-scan
 RUN pip install --upgrade pip --break-system-packages
 WORKDIR /app
-COPY . /app
-COPY requirements_scanner.txt /app/requirements_scanner.txt
-COPY scanner.py /app/scanner.py
+COPY Backend /app
+RUN ls -ls /app
+COPY Backend/Scanner/requirements_scanner.txt /app/requirements_scanner.txt
+COPY Backend/Scanner/scanner.py /app/scanner.py
 RUN pip --no-cache-dir install -r requirements_scanner.txt --break-system-packages
 RUN chmod +x scanner.py
-CMD ["python3", "scanner.py"]
-
-
+CMD ["python3", "/app/scanner.py"]

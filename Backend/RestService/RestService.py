@@ -1,126 +1,37 @@
-from flask import Flask, jsonify, request
-import psycopg2
+from flask import Flask, jsonify, request, abort
+from flask_cors import CORS
+from database import (
+    get_all_users,
+    get_user_by_username_and_password,
+    add_user_to_database,
+    delete_user_by_username,
+    check_if_user_exists_by_username,
+    add_graph_data_database,
+    get_graph_data,
+    get_hashed_mac_addresses,
+    get_graph_data_from_to,
+    get_entries_by_mac_address,
+)
 
 app = Flask(__name__)
-
-database_name = "exampledb"
-user = "postgres"
-password = "mysecretpassword"
-host = "local_db"
-port = "5432"
-
-def connect_to_database():
-    try:
-        conn = psycopg2.connect(
-            database=database_name,
-            user=user,
-            password=password,
-            host=host,
-            port=port
-        )
-
-        return conn
-    except psycopg2.Error as e:
-        print("Error connecting to the PostgreSQL database:", e)
-        return None
-
-def get_user_by_username(username):
-    conn = connect_to_database()
-    if conn is None:
-        return "Error connecting to the PostgreSQL database."
-
-    try:
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM user_credentials WHERE username = %s", (username,))
-        row = cursor.fetchone()
-
-        if row:
-            user_dict = {
-                'id': row[0],
-                'firstname': row[1],
-                'lastname': row[2],
-                'username': row[3],
-                'password': row[4]
-            }
-            cursor.close()
-            conn.close()
-            return jsonify(user=user_dict)
-        else:
-            return "User not found."
-
-    except psycopg2.Error as e:
-        return "Error executing SQL query: " + str(e)
-
-def add_user_to_database(firstname, lastname, username, password):
-    conn = connect_to_database()
-    if conn is None:
-        return "Error connecting to the PostgreSQL database."
-
-    try:
-        cursor = conn.cursor()
-        cursor.execute("INSERT INTO user_credentials (firstname, lastname, username, password) VALUES (%s, %s, %s, %s)", (firstname, lastname, username, password))
-        conn.commit()
-        cursor.close()
-        conn.close()
-        return "User added to the database."
-
-    except psycopg2.Error as e:
-        return "Error adding user to the database: " + str(e)
-
-def delete_user_by_username(username):
-    conn = connect_to_database()
-    if conn is None:
-        return "Error connecting to the PostgreSQL database."
-
-    try:
-        cursor = conn.cursor()
-        cursor.execute("DELETE FROM user_credentials WHERE username = %s", (username,))
-        conn.commit()
-        cursor.close()
-        conn.close()
-        return "User deleted from the database."
-
-    except psycopg2.Error as e:
-        return "Error deleting user from the database: " + str(e)
+CORS(app)
 
 @app.route("/Hello")
 def hello_world():
     return "Hello, World!"
 
 @app.route("/GetAllUsers")
-def get_all_users():
-    conn = connect_to_database()
-    if conn is None:
-        return "Error connecting to the PostgreSQL database."
-
-    try:
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM user_credentials")
-        rows = cursor.fetchall()
-        user_list = []
-        for row in rows:
-            user_dict = {
-                'id': row[0],
-                'firstname': row[1],
-                'lastname': row[2],
-                'username': row[3],
-                'password': row[4]
-            }
-            user_list.append(user_dict)
-        cursor.close()
-        conn.close()
-        return jsonify(users=user_list)
-
-    except psycopg2.Error as e:
-        return "Error executing SQL query: " + str(e)
+def get_all_users_route():
+    return get_all_users()
 
 @app.route("/GetUser", methods=['POST'])
 def get_user():
     data = request.get_json()
     username = data.get('username')
+    password = data.get('password')
 
     if username:
-        result = get_user_by_username(username)
+        result = get_user_by_username_and_password(username, password)
         return result
     else:
         return "Invalid data. 'username' is required in the request."
@@ -132,16 +43,16 @@ def add_user():
     lastname = data.get('lastname')
     username = data.get('username')
     password = data.get('password')
-
+    
     if username and password:
-        existing_user = get_user_by_username(username)
-        if "User not found" not in existing_user:
-            return "Username already exists. Please choose a different username."
-
-        result = add_user_to_database(firstname, lastname, username, password)
-        return result
+        existing_user_response = check_if_user_exists_by_username(username)
+        if existing_user_response:
+            abort(404, "Username already exists. Please choose a different username.")
+        else:
+            result = add_user_to_database(firstname, lastname, username, password)
+            return result
     else:
-        return "Invalid data. 'firstname', 'lastname', 'username' and 'password' are required in the request."
+        return "Invalid data. 'firstname', 'lastname', 'username', and 'password' are required in the request."
 
 @app.route("/DeleteUser", methods=['DELETE'])
 def delete_user():
@@ -154,5 +65,48 @@ def delete_user():
     else:
         return "Invalid data. 'username' is required in the request."
 
+@app.route("/AddGraphData", methods=['POST'])
+def add_graph_data():
+    data = request.get_json()
+    time_stamp = data.get('time_stamp')
+    quantity = data.get('quantity')
+    if time_stamp and quantity:
+        result = add_graph_data_database(time_stamp, quantity)
+    hashed_mac_address = data.get('hashed_mac_address')
+
+    if time_stamp and (quantity or hashed_mac_address):
+        if quantity:
+            result = add_graph_data_database(time_stamp, quantity)
+        elif hashed_mac_address:
+            result = add_graph_data_database(time_stamp, hashed_mac_address, is_quantity=False)
+        return result
+    else:
+        abort(404, "Error Adding Graph Data to database.")
+
+@app.route("/GetGraphData", methods=['GET'])
+def get_graph_data_route():
+    return get_graph_data()
+
+@app.route("/GetGraphDataFromTo", methods=['POST'])
+def get_graph_data_from_to_route():
+    data = request.get_json()
+    time_stamp_from = data.get('time_stamp_from')
+    time_stamp_to = data.get('time_stamp_to')
+    if time_stamp_from and time_stamp_to:
+        result = get_graph_data_from_to(time_stamp_from, time_stamp_to)
+        return result
+    else:
+        abort(404, "Invalid data. Timestamps are required in the request")
+
+@app.route("/GetTimeStampsByMac", methods=['POST'])
+def get_timestamps_by_mac_route():
+    data = request.get_json()
+    mac = data.get('mac_address')
+    if mac:
+        result = get_entries_by_mac_address(mac)
+        return result
+    else:
+        abort(404, "Invalid data. MAC-Address is required in the request")
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(ssl_context=('/app/Certificates/cert.pem', '/app/Certificates/key.pem'), host='0.0.0.0', port=5000, debug=True)
