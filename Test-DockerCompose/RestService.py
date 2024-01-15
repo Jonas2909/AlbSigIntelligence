@@ -70,8 +70,8 @@ def add_graph_data():
     data = request.get_json()
     time_stamp = data.get('time_stamp')
     quantity = data.get('quantity')
-    if time_stamp and quantity:
-        result = add_graph_data_database(time_stamp, quantity)
+    # if time_stamp and quantity:
+    #    result = add_graph_data_database(time_stamp, quantity)
     hashed_mac_address = data.get('hashed_mac_address')
 
     if time_stamp and (quantity or hashed_mac_address):
@@ -86,6 +86,10 @@ def add_graph_data():
 @app.route("/GetGraphData", methods=['GET'])
 def get_graph_data_route():
     return get_graph_data()
+
+@app.route("/GetHashedMACAddresses", methods=['GET'])
+def get_hashed_mac_addresses_route():
+    return get_hashed_mac_addresses()
 
 @app.route("/GetGraphDataFromTo", methods=['POST'])
 def get_graph_data_from_to_route():
