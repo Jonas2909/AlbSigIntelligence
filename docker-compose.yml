@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.app
+      dockerfile: ./Backend/RestService/Dockerfile.app
     depends_on:
       - db
     ports:
@@ -17,7 +17,7 @@ services:
   db:
     image: postgres
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./Backend/Database/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       POSTGRES_DB: exampledb
       POSTGRES_USER: postgres
@@ -29,13 +29,13 @@ services:
   scanner:
     build:
       context: .
-      dockerfile: Dockerfile.scanner
+      dockerfile: ./Backend/Scanner/Dockerfile
     depends_on:
       - app
     command: ["python3", "scanner.py"]
     container_name: scanner
     volumes:
-      - ./:/app
+      - ./Backend/Scanner:/app
     network_mode: "host"
     
 networks:
