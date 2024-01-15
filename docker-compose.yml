@@ -38,6 +38,19 @@ services:
       - ./Backend/Scanner:/app
     network_mode: "host"
     
+  visualization:
+    build:
+      context: .
+      dockerfile: ./Frontend/albsigintelligence/Dockerfile
+    depends_on:
+      - app
+    ports:
+      - "3000:3000"
+    entrypoint: ["nginx", "-g", "daemon off;"]
+    container_name: visualization
+    networks:
+      - localnetwork
+ 
 networks:
   localnetwork:
 
