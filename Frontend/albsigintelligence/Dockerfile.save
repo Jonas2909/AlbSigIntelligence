@@ -10,9 +10,7 @@ RUN ls -al
 RUN npm run build
 
 FROM nginx:1.19.0
-COPY ./Frontend/albsigintelligence/cert.pem /etc/nginx/ssl/cert.pem
-COPY ./Frontend/albsigintelligence/key.pem /etc/nginx/ssl/key.pem
-COPY ./Frontend/albsigintelligence/nginx.conf /etc/nginx/nginx.conf
+COPY dock
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 COPY --from=buildFrontEnd /app/build .
