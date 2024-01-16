@@ -89,7 +89,7 @@ schedule.every().day.at("16:45").do(scan)
 schedule.every().day.at("18:15").do(scan)
 
 # scheduled task for development
-schedule.every().day.at("16:47").do(scan)
+# schedule.every().day.at("16:47").do(scan)
 
 while True:
     schedule.run_pending()
