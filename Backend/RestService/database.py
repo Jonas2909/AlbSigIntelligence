@@ -269,7 +269,7 @@ def get_entries_by_mac_address(mac_address):
 
     try:
         cursor = conn.cursor()
-        query = "SELECT * FROM mac_addresses WHERE mac = %s"
+        query = "SELECT * FROM mac_addresses WHERE hashed_mac_address = %s"
         cursor.execute(query, (mac_address,))
         rows = cursor.fetchall()
 
