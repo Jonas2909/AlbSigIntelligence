@@ -137,7 +137,7 @@ export default function Visualization() {
         time_stamp_to: toUtcInSeconds
       };
 
-      const response = await fetch("https://localhost:5000/GetGraphDataFromTo", {
+      const response = await fetch("https://SIA-M:5000/GetGraphDataFromTo", {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         mode: 'cors',
@@ -217,14 +217,14 @@ export default function Visualization() {
 
 
   const fetchTimeStamps = async (mac) => {
-    console.log("Fetching URL:", "https://localhost:5000/GetTimeStampsByMac");
+    console.log("Fetching URL:", "https://SIA-M:5000/GetTimeStampsByMac");
 
     try {
       const requestBody = {
         mac_address: mac
       };
 
-      const response = await fetch("https://localhost:5000/GetTimeStampsByMac", {
+      const response = await fetch("https://SIA-M:5000/GetTimeStampsByMac", {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         mode: 'cors',

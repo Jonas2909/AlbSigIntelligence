@@ -50,8 +50,8 @@ export default function SignIn() {
       return
     }
     try {
-      console.log("Fetching URL: https://localhost:5000/GetUser");
-      const response = await fetch('https://141.87.60.1:5000/GetUser', {
+      console.log("Fetching URL: https://SIA-M:5000/GetUser");
+      const response = await fetch('https://SIA-M:5000/GetUser', {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         mode: 'cors',
@@ -111,8 +111,8 @@ export default function SignIn() {
     });
 
     try {
-      console.log("Fetching URL: https://localhost:5000/AddUser");
-      const response = await fetch('https://141.87.60.1:5000/AddUser', {
+      console.log("Fetching URL: https://SIA-M:5000/AddUser");
+      const response = await fetch('https://SIA-M:5000/AddUser', {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         mode: 'cors',
