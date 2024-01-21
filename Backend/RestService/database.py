@@ -2,6 +2,8 @@ import psycopg2
 import bcrypt
 from flask import abort, jsonify
 import logging
+import hashlib
+
 
 database_name = "exampledb"
 user = "postgres"
@@ -267,10 +269,13 @@ def get_entries_by_mac_address(mac_address):
     if conn is None:
         return "Error connecting to the PostgreSQL database."
 
+    hashed_mac_address = hashlib.sha256(mac_address.encode()).hexdigest()
+    logging.info(hashed_mac_address)
+
     try:
         cursor = conn.cursor()
         query = "SELECT * FROM mac_addresses WHERE hashed_mac_address = %s"
-        cursor.execute(query, (mac_address,))
+        cursor.execute(query, (hashed_mac_address,))
         rows = cursor.fetchall()
 
         entries_list = []
