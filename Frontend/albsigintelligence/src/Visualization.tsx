@@ -488,13 +488,13 @@ export default function Visualization() {
                 dataKey="time_stamp"
                 allowDataOverflow={true}
                 stroke={defaultTheme.palette.text.primary}
-                tickFormatter={(unixTime) => dateType === "day" ? moment.unix(unixTime).format('HH:mm') : dateType === "week" ? moment.unix(unixTime).format('ddd') : moment.unix(unixTime).format('DD.MM')}
+                tickFormatter={(unixTime) => dateType === "day" ? moment.unix(unixTime).format('HH:mm') : dateType === "week" ? moment.unix(unixTime).format('ddd') : dateType === "month" ? moment.unix(unixTime).format('DD.MM') : moment.unix(unixTime).format('DD.MM')}
                 domain={[startDate, endDate]}
               />
               <YAxis
                 orientation="left"
-                width={100}
                 stroke={defaultTheme.palette.text.primary}
+                domain={[0, Math.ceil(Math.max(...measurements.map(entry => entry.quantity)) / 10) * 10]}
               />
               <Tooltip
                 labelFormatter={(unixTime) =>
