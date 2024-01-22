@@ -565,7 +565,7 @@ export default function Visualization() {
       </Snackbar>
 
       <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>MAC-Address: {searchedString} <br></br> Subnet: 192.168.1.0/255</DialogTitle>
+        <DialogTitle>MAC-Address: {searchedString} <br></br> Subnet: 141.87.56.1/21</DialogTitle>
         <DialogContent>
           <Table>
             <TableHead>
