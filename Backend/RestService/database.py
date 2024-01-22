@@ -282,8 +282,8 @@ def get_entries_by_mac_address(mac_address):
         for row in rows:
             entry_dict = {
                 'id': row[0],
-                'mac_address': row[1],
-                'time_stamps': row[2],
+                'time_stamps': row[1],
+                'mac_address': row[2],
             }
             entries_list.append(entry_dict)
 

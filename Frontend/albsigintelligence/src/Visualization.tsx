@@ -45,7 +45,7 @@ export default function Visualization() {
   var today = new Date();
   let msg = ''
   let url = ''
-  let hostname = 'bu7z-L'
+  let hostname = 'bu7z-T'
 
   const [endDate, setEndDate] = useState<number>(today.setHours(0, 0, 0, 0).valueOf());
   const [startDate, setStartDate] = useState<number>(today.setDate(today.getDate() + 1));
@@ -227,7 +227,7 @@ export default function Visualization() {
       const requestBody = {
         mac_address: mac
       };
-      url = `"https://${hostname}:5000/GetTimeStampsByMac`
+      url = `https://${hostname}:5000/GetTimeStampsByMac`
       const response = await fetch(url, {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
