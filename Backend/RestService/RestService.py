@@ -11,7 +11,9 @@ from database import (
     get_hashed_mac_addresses,
     get_graph_data_from_to,
     get_entries_by_mac_address,
+    delete_hash_database,
 )
+
 
 app = Flask(__name__)
 CORS(app)
@@ -82,6 +84,18 @@ def add_graph_data():
         return result
     else:
         abort(404, "Error Adding Graph Data to database.")
+
+@app.route("/DeleteHashedMAC", methods=['POST'])
+def delete_hashed_mac():
+    data = request.get_json()
+    time_stamp = data.get('time_stamp')
+
+    if time_stamp:
+        result = delete_hash_database(time_stamp)
+        return result
+    else:
+        abort(404, "Error Expecting Time Stamp.")
+        
 
 @app.route("/GetGraphData", methods=['GET'])
 def get_graph_data_route():

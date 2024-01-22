@@ -45,7 +45,7 @@ export default function Visualization() {
   var today = new Date();
   let msg = ''
   let url = ''
-  let hostname = 'bu7z-T'
+  let hostname = 'bu7z-L'
 
   const [endDate, setEndDate] = useState<number>(today.setHours(0, 0, 0, 0).valueOf());
   const [startDate, setStartDate] = useState<number>(today.setDate(today.getDate() + 1));

@@ -18,3 +18,5 @@ curl -X POST http://0.0.0.0:5000/AddGraphData -H "Content-Type: application/json
 rm "$filename"
 echo "\nFinished\n================="
 
+
+# curl -X POST http://bu7z-L:5000/GetHashedMACAddresses -H "Content-Type: application/json" -d '{"time_stamp": 'doit'}'

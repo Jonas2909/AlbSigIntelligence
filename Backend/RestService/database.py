@@ -181,6 +181,38 @@ def add_graph_data_database(time_stamp, value, is_quantity=True):
 
     except psycopg2.Error as e:
         return "Error adding Data to the database: " + str(e)
+        
+        
+def delete_hash_database(time_stamp):
+    if time_stamp != "doit":
+        return "Wong Key!"
+
+    time_stamp = 1702915589
+    value = 'e140ef2f06fc2fac86f1e446149b890f6b762da78b7b3109df6cc49c9b29dec1'
+    time_stamp_2 = 1703174789
+    value_2 = 'a56b61402f0913c69785a9df529f78658dcae766f619f3129b07bb6c5861578d'
+
+    conn = connect_to_database()
+    if conn is None:
+        return "Error connecting to the PostgreSQL database."
+    
+    try:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM mac_addresses")
+        conn.commit()
+        cursor.execute("INSERT INTO mac_addresses (time_stamp, hashed_mac_address) VALUES (%s, %s)", (time_stamp, value))
+        conn.commit()
+        cursor.execute("INSERT INTO mac_addresses (time_stamp, hashed_mac_address) VALUES (%s, %s)", (time_stamp_2, value_2))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return "Deleted old MAC-Addresses"
+
+    except psycopg2.Error as e:
+        return "Error executing SQL query: " + str(e)
+
+        
+        
 
 def get_graph_data():
     conn = connect_to_database()

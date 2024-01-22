@@ -24,6 +24,12 @@ def scan():
 
 	# if ar-scan ran succefully do...
 	if process.returncode == 0:	
+	    # Delete previous written Hashed MACS
+
+		url = 'https://0.0.0.0:5000/DeleteHashedMAC'
+		data={ 'time_stamp': 'doit' }
+		response = requests.post(url,json=data, verify=False)
+		
 		print("arp-scan ran successfully.")
 	    
 		url = 'https://0.0.0.0:5000/AddGraphData'
@@ -89,7 +95,8 @@ schedule.every().day.at("16:45").do(scan)
 schedule.every().day.at("18:15").do(scan)
 
 # scheduled task for development
-schedule.every().day.at("16:47").do(scan)
+# schedule.every().day.at("21:39").do(scan)
+# schedule.every().day.at("21:40").do(scan)
 
 while True:
     schedule.run_pending()
