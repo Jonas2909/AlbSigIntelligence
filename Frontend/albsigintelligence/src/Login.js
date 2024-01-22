@@ -30,7 +30,9 @@ function Copyright(props) {
 }
 
 const defaultTheme = createTheme();
-
+let hostname = 'bu7z-L'
+let url = ''
+let msg = ''
 export default function SignIn() {
   const [openSignupDialog, setOpenSignupDialog] = useState(false);
   const [username, setUsername] = useState();
@@ -50,8 +52,10 @@ export default function SignIn() {
       return
     }
     try {
-      console.log("Fetching URL: https://SIA-M:5000/GetUser");
-      const response = await fetch('https://SIA-M:5000/GetUser', {
+      msg = `Fetching URL: https://${hostname}:5000/GetUser`;
+      console.log(msg);
+      url = `https://${hostname}:5000/GetUser`;
+      const response = await fetch(url, {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         mode: 'cors',
@@ -111,8 +115,10 @@ export default function SignIn() {
     });
 
     try {
-      console.log("Fetching URL: https://SIA-M:5000/AddUser");
-      const response = await fetch('https://SIA-M:5000/AddUser', {
+      msg = `Fetching URL: https://${hostname}:5000/AddUser`
+      console.log(msg);
+      url = `https://${hostname}:5000/AddUser`
+      const response = await fetch(url, {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         mode: 'cors',

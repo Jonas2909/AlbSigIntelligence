@@ -43,6 +43,9 @@ export default function Visualization() {
 
 
   var today = new Date();
+  let msg = ''
+  let url = ''
+  let hostname = 'bu7z-L'
 
   const [endDate, setEndDate] = useState<number>(today.setHours(0, 0, 0, 0).valueOf());
   const [startDate, setStartDate] = useState<number>(today.setDate(today.getDate() + 1));
@@ -136,8 +139,8 @@ export default function Visualization() {
         time_stamp_from: fromUtcInSeconds,
         time_stamp_to: toUtcInSeconds
       };
-
-      const response = await fetch("https://SIA-M:5000/GetGraphDataFromTo", {
+      url = `https://${hostname}:5000/GetGraphDataFromTo`
+      const response = await fetch(url, {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         mode: 'cors',
@@ -217,14 +220,15 @@ export default function Visualization() {
 
 
   const fetchTimeStamps = async (mac) => {
-    console.log("Fetching URL:", "https://SIA-M:5000/GetTimeStampsByMac");
+    msg = `Fetching URL:", "https://${hostname}:5000/GetTimeStampsByMac`
+    console.log(msg);
 
     try {
       const requestBody = {
         mac_address: mac
       };
-
-      const response = await fetch("https://SIA-M:5000/GetTimeStampsByMac", {
+      url = `"https://${hostname}:5000/GetTimeStampsByMac`
+      const response = await fetch(url, {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         mode: 'cors',
