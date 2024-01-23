@@ -499,6 +499,7 @@ export default function Visualization() {
                 orientation="left"
                 width={100}
                 stroke={defaultTheme.palette.text.primary}
+                domain={[0, Math.ceil(Math.max(...measurements.map(entry => entry.quantity)) / 10) * 10]}
               />
               <Tooltip
                 labelFormatter={(unixTime) =>
