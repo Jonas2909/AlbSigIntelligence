@@ -184,6 +184,10 @@ def add_graph_data_database(time_stamp, value, is_quantity=True):
         
         
 def delete_hash_database(time_stamp):
+    # demo vaues
+    add_this_hash = "75285b006b233382d4130c34a90ab77916b6dc52c3fedc36ff1b324efc8cc27e"
+    add_time_stamps = [1706033709, 1706028309, 1706022009, 1706015709, 1706012110, 1706006710, 1706000409, 1705994109]
+    
     if time_stamp != "doit":
         return "Wong Key!"
 
@@ -204,6 +208,9 @@ def delete_hash_database(time_stamp):
         conn.commit()
         cursor.execute("INSERT INTO mac_addresses (time_stamp, hashed_mac_address) VALUES (%s, %s)", (time_stamp_2, value_2))
         conn.commit()
+        for t in add_time_stamps:
+            cursor.execute("INSERT INTO mac_addresses (time_stamp, hashed_mac_address) VALUES (%s, %s)", (t, add_this_hash))
+            conn.commit()
         cursor.close()
         conn.close()
         return "Deleted old MAC-Addresses"
