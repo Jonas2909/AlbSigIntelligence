@@ -60,7 +60,7 @@ Routes on RestService are noch reachable as shown above, but RestService is runn
 
 ## Run Python RestService as Docker Container using Makefile
 
-Location Fodler: /RestService
+Location Folder: /RestService
 
 Build RestService Container: <br>
 make build_rest_service <br>
